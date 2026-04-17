@@ -30,7 +30,7 @@ ui <- bslib::page_navbar(
                          accept = c(".asc", ".txt", ".csv")),
         shiny::selectInput(
           "example_type", "Or load example:",
-          choices = c("-", "pedar", "emed", "saddle_horse",
+          choices = c("-", "insole", "platform", "saddle_horse",
                       "saddle_bicycle", "wheelchair"),
           selected = "-"
         ),
@@ -59,7 +59,7 @@ ui <- bslib::page_navbar(
                            selected = "mpp"),
         shiny::selectInput("palette", "Palette",
                            choices = c("viridis", "inferno", "plasma",
-                                       "magma", "jet", "novel"),
+                                       "magma", "jet", "classic"),
                            selected = "viridis"),
         shiny::checkboxInput("show_regions", "Show regions", FALSE),
         shiny::checkboxInput("use_frame", "Single frame (vs summary)",
@@ -112,7 +112,7 @@ ui <- bslib::page_navbar(
         4,
         shiny::h4("Second trial"),
         shiny::selectInput("compare_example", "Load example:",
-                           choices = c("-", "pedar", "saddle_horse",
+                           choices = c("-", "insole", "saddle_horse",
                                        "wheelchair"),
                            selected = "-"),
         shiny::actionButton("load_b", "Load as trial B",

@@ -1,5 +1,5 @@
 # ---------------------------------------------------------------------------
-# ASCII parser for novel exports (pedar / pliance / emed / saddle).
+# ASCII parser for tab/space-delimited pressure data exports.
 # ---------------------------------------------------------------------------
 
 # Internal: extract a single value from a header line matching a key.
@@ -26,11 +26,11 @@
   NA_integer_
 }
 
-#' Read novel ASCII Pressure Data Export
+#' Read ASCII Pressure Data Export
 #'
-#' Parses ASCII data files exported from novel emed, pedar, or pliance
-#' software. Automatically detects header format and extracts metadata,
-#' the pressure matrix, and timing.
+#' Parses ASCII data files containing pressure sensor data. Automatically
+#' detects header format and extracts metadata, the pressure matrix, and
+#' timing.
 #'
 #' @param path Character. Path to the ASCII file (`.asc`, `.txt`).
 #' @param layout A [pr_layout] object. If `NULL`, inferred from the
@@ -45,7 +45,7 @@
 #' @return A [pr_trial] object.
 #' @export
 #' @examples
-#' path <- pr_example_files("pedar")
+#' path <- pr_example_files("insole")
 #' trial <- pr_read_ascii(path, verbose = FALSE)
 #' trial$n_frames
 pr_read_ascii <- function(path, layout = NULL, sampling_hz = NULL,
@@ -116,9 +116,9 @@ pr_read_ascii <- function(path, layout = NULL, sampling_hz = NULL,
       # Use system label to infer
       layout <- switch(
         tolower(sys_label),
-        pedar = pr_layout_pedar(),
-        emed  = pr_layout_emed("st"),
-        pliance = .layout_from_n_sensors(n_sensors) %||% pr_layout_pliance("16"),
+        insole = pr_layout_insole(),
+        platform = pr_layout_platform("st"),
+        mat = .layout_from_n_sensors(n_sensors) %||% pr_layout_mat("16"),
         .layout_from_n_sensors(n_sensors)
       )
     }

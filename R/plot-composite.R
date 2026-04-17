@@ -43,12 +43,12 @@ pr_plot_saddle_report <- function(trial, thresholds = NULL) {
 #' Composite figure for foot pressure analysis: MPP map, regional bar
 #' chart, force-time curve, COP trajectory.
 #'
-#' @param trial A [pr_trial] object from a pedar or emed recording.
+#' @param trial A [pr_trial] object from an insole or platform recording.
 #'
 #' @return A `patchwork` object.
 #' @export
 #' @examples
-#' pr_plot_foot_report(pr_example_trial("pedar"))
+#' pr_plot_foot_report(pr_example_trial("insole"))
 pr_plot_foot_report <- function(trial) {
   .validate_trial(trial)
   # Pick default regions from the layout; if empty, auto-segment

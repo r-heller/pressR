@@ -31,7 +31,7 @@ test_that("pr_mask_saddle_6 returns six named masks", {
 })
 
 test_that("pr_mask_foot_auto handles empty pressure gracefully", {
-  layout <- pr_layout_emed("cl")
+  layout <- pr_layout_platform("cl")
   trial <- pr_trial(
     pressure = matrix(0, nrow = 5, ncol = layout$n_sensors),
     time = seq(0, 0.1, length.out = 5), layout = layout

@@ -9,8 +9,8 @@
 #' @export
 #' @examples
 #' ds <- pr_dataset(list(
-#'   pr_example_trial("pedar", seed = 1),
-#'   pr_example_trial("pedar", seed = 2)
+#'   pr_example_trial("insole", seed = 1),
+#'   pr_example_trial("insole", seed = 2)
 #' ))
 #' pr_batch_summary(ds)
 pr_batch_summary <- function(dataset) {
@@ -46,8 +46,8 @@ pr_batch_summary <- function(dataset) {
 #' @export
 #' @examples
 #' pr_merge_trials(
-#'   pr_example_trial("pedar", seed = 1),
-#'   pr_example_trial("pedar", seed = 2)
+#'   pr_example_trial("insole", seed = 1),
+#'   pr_example_trial("insole", seed = 2)
 #' )
 pr_merge_trials <- function(..., group_var = "condition") {
   args <- list(...)

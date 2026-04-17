@@ -46,13 +46,13 @@ test_that("pr_layout() rejects misnamed region matrices", {
 })
 
 test_that("print and summary for pr_layout do not error", {
-  layout <- pr_layout_pedar()
+  layout <- pr_layout_insole()
   expect_invisible(print(layout))
   s <- summary(layout)
   expect_s3_class(s, "summary.pr_layout")
 })
 
 test_that("pr_validate_layout accepts a valid layout", {
-  expect_invisible(pr_validate_layout(pr_layout_pedar()))
+  expect_invisible(pr_validate_layout(pr_layout_insole()))
   expect_true(pr_validate_layout(pr_layout_saddle("horse")))
 })

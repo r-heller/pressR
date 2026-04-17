@@ -1,5 +1,5 @@
 test_that("pr_read_ascii parses example file", {
-  path <- pr_example_files("pedar")
+  path <- pr_example_files("insole")
   trial <- pr_read_ascii(path, verbose = FALSE)
   expect_s3_class(trial, "pr_trial")
   expect_equal(trial$layout$n_sensors, 99L)
@@ -11,17 +11,17 @@ test_that("pr_read_ascii errors on missing file", {
 })
 
 test_that("pr_read_auto dispatches on extension", {
-  path <- pr_example_files("pedar")
+  path <- pr_example_files("insole")
   trial <- pr_read_auto(path, verbose = FALSE)
   expect_s3_class(trial, "pr_trial")
 })
 
 test_that("pr_read_csv round-trips wide pressure data", {
-  trial <- pr_example_trial("pedar")
+  trial <- pr_example_trial("insole")
   tmp <- withr::local_tempfile(fileext = ".csv")
   pr_export_csv(trial, tmp, what = "pressure")
   trial2 <- pr_read_csv(tmp, format = "wide",
-                        layout = pr_layout_pedar(),
+                        layout = pr_layout_insole(),
                         time_col = "time", verbose = FALSE)
   expect_s3_class(trial2, "pr_trial")
   expect_equal(trial2$n_frames, trial$n_frames)
@@ -35,7 +35,7 @@ test_that("pr_read_mask parses simple mask text", {
   expect_equal(dim(m), c(2L, 2L))
 })
 
-test_that("pr_read_loadsol parses basic CSV", {
+test_that("pr_read_forcesensor parses basic CSV", {
   tmp <- withr::local_tempfile(fileext = ".csv")
   utils::write.csv(
     data.frame(
@@ -45,7 +45,7 @@ test_that("pr_read_loadsol parses basic CSV", {
     ),
     tmp, row.names = FALSE
   )
-  trial <- pr_read_loadsol(tmp, verbose = FALSE)
+  trial <- pr_read_forcesensor(tmp, verbose = FALSE)
   expect_s3_class(trial, "pr_trial")
   expect_equal(trial$n_sensors, 2L)
 })

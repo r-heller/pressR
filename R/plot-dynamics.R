@@ -23,7 +23,7 @@
 #' @return A `ggplot2` object.
 #' @export
 #' @examples
-#' pr_plot_force_time(pr_example_trial("pedar"))
+#' pr_plot_force_time(pr_example_trial("insole"))
 pr_plot_force_time <- function(trial, show_cycles = FALSE) {
   .validate_trial(trial)
   df <- tibble::tibble(
@@ -45,7 +45,7 @@ pr_plot_force_time <- function(trial, show_cycles = FALSE) {
 #' @return A `ggplot2` object.
 #' @export
 #' @examples
-#' pr_plot_pressure_time(pr_example_trial("pedar"))
+#' pr_plot_pressure_time(pr_example_trial("insole"))
 pr_plot_pressure_time <- function(trial, show_cycles = FALSE) {
   .validate_trial(trial)
   df <- tibble::tibble(
@@ -147,7 +147,7 @@ pr_plot_cop <- function(trial, show_layout = TRUE,
 #' @return A `ggplot2` object.
 #' @export
 #' @examples
-#' pr_plot_cop_butterfly(pr_example_trial("pedar"))
+#' pr_plot_cop_butterfly(pr_example_trial("insole"))
 pr_plot_cop_butterfly <- function(trial, cycles = NULL) {
   .validate_trial(trial)
   if (is.null(cycles)) cycles <- pr_calc_gait_cycles(trial)

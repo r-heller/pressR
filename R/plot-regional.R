@@ -115,8 +115,8 @@ pr_plot_symmetry <- function(trial,
 #' @return A `ggplot2` (or patchwork) object.
 #' @export
 #' @examples
-#' a <- pr_example_trial("pedar", seed = 1)
-#' b <- pr_example_trial("pedar", seed = 2)
+#' a <- pr_example_trial("insole", seed = 1)
+#' b <- pr_example_trial("insole", seed = 2)
 #' pr_plot_comparison(a, b, type = "difference")
 pr_plot_comparison <- function(trial_a, trial_b,
                                type = c("heatmap", "difference",

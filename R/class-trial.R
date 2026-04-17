@@ -16,7 +16,7 @@
 #' @return A `pr_trial` S3 object.
 #' @export
 #' @examples
-#' trial <- pr_example_trial("pedar")
+#' trial <- pr_example_trial("insole")
 #' print(trial)
 pr_trial <- function(pressure, time, layout, metadata = list(),
                      sampling_hz = NULL) {

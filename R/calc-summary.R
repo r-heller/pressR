@@ -28,7 +28,7 @@
 #'   - `cop_range_ml`: medial-lateral COP range (mm)
 #' @export
 #' @examples
-#' trial <- pr_example_trial("pedar")
+#' trial <- pr_example_trial("insole")
 #' pr_summary(trial)
 pr_summary <- function(trial, threshold = 0) {
   .validate_trial(trial)

@@ -1,5 +1,3 @@
-<!-- README.md is generated from README.Rmd. Please edit that file. -->
-
 # pressR <img src="man/figures/logo.png" align="right" height="139" alt="pressR logo" />
 
 <!-- badges: start -->
@@ -8,10 +6,11 @@
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
-**pressR** parses, analyses, and visualises pressure distribution data
-from capacitive sensor systems.
-It ships with predefined layouts, along with an interactive Shiny application for
-data exploration.
+**pressR** parses, analyzes, and visualizes pressure distribution data
+from capacitive sensor systems. It ships with predefined layouts for
+in-shoe pressure measurement, saddle pressure mapping (equine and
+bicycle), seating assessment, and barefoot pedography, along with an
+interactive Shiny application for data exploration.
 
 ## Installation
 
@@ -25,7 +24,7 @@ pak::pak("r-heller/pressR")
 ```r
 library(pressR)
 
-trial <- pr_example_trial("pedar")
+trial <- pr_example_trial("insole")
 
 pr_plot_heatmap(trial)
 pr_plot_force_time(trial, show_cycles = TRUE)
@@ -36,12 +35,20 @@ pr_calc_regional(trial)
 
 ## Features
 
-* **Parsers** for novel ASCII exports, generic CSV, loadsol data,
-  and novel mask files (`.msa`/`.msr`/`.msp`).
+* **Parsers** for ASCII pressure data exports, generic CSV, force
+  sensor data, and region mask files (`.msa`/`.msr`/`.msp`).
+* **Predefined layouts** for in-shoe insoles (99-sensor), barefoot
+  pressure platforms, generic sensor mats (16x16 / 32x32), horse and
+  bicycle saddles, wheelchair / car / office seating, and glove sensors.
 * **Per-frame and per-trial analysis**: peak pressure, mean pressure,
-  force, contact area, pressure-time integral, centre of pressure,
+  force, contact area, pressure-time integral, center of pressure,
   symmetry index, gait cycle detection, and COP rollover pattern.
-* **Visualisation**: 2D and 3D heatmaps, dynamics plots, regional bar
+* **Application-specific analysis**: saddle bridge and slip detection,
+  wheelchair hotspot identification, plantar-pressure regional analysis.
+* **Published reference thresholds** for saddle fit (von Peinen 2010,
+  Moenkemoeller 2005, Werner 2002), diabetic foot risk, and wheelchair
+  seating.
+* **Visualization**: 2D and 3D heatmaps, dynamics plots, regional bar
   charts, composite report panels, and side-by-side trial comparison.
 * **Shiny app** (`pr_run_app()`) for interactive import, analysis, and
   export.
@@ -54,4 +61,4 @@ pr_calc_regional(trial)
 
 ## License
 
-MIT © Raban Heller.
+MIT

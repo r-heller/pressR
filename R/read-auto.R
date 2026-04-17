@@ -12,7 +12,7 @@
 #'   logical mask matrix / [pr_mask] object (for `.msa`/`.msr`/`.msp`).
 #' @export
 #' @examples
-#' path <- pr_example_files("pedar")
+#' path <- pr_example_files("insole")
 #' tr <- pr_read_auto(path, verbose = FALSE)
 #' inherits(tr, "pr_trial")
 pr_read_auto <- function(path, layout = NULL, verbose = TRUE) {

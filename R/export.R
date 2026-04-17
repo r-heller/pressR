@@ -14,7 +14,7 @@
 #' @export
 #' @examples
 #' tmp <- tempfile(fileext = ".csv")
-#' pr_export_csv(pr_example_trial("pedar"), tmp, what = "summary")
+#' pr_export_csv(pr_example_trial("insole"), tmp, what = "summary")
 pr_export_csv <- function(trial, path,
                           what = c("summary", "regional", "pressure", "cop"),
                           masks = NULL) {
@@ -61,7 +61,7 @@ pr_export_csv <- function(trial, path,
 #' @examples
 #' \dontrun{
 #' tmp <- tempfile(fileext = ".html")
-#' pr_export_report(pr_example_trial("pedar"), tmp, template = "foot")
+#' pr_export_report(pr_example_trial("insole"), tmp, template = "foot")
 #' }
 pr_export_report <- function(trial, output_file,
                              format = c("html", "pdf"),

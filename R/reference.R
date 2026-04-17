@@ -1,7 +1,7 @@
 #' Saddle Fit Reference Thresholds
 #'
 #' Returns published threshold values for equine saddle pressure
-#' assessment based on peer-reviewed studies using the pliance system.
+#' assessment based on peer-reviewed studies.
 #'
 #' @param source Character. Reference source: `"vonpeinen2010"` (default),
 #'   `"monkemoller2005"`, or `"werner2002"`.

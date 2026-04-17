@@ -18,7 +18,7 @@
 #'   pressure in kPa.
 #' @param pressure_unit Character. Unit of pressure measurement. Default `"kPa"`.
 #' @param name Character. Short identifier for this layout
-#'   (e.g., `"pedar_standard"`).
+#'   (e.g., `"insole_standard"`).
 #' @param description Character. Human-readable description.
 #' @param manufacturer Character. Sensor manufacturer. Default `""`.
 #' @param model Character. Sensor model/system name.
@@ -271,7 +271,7 @@ plot.pr_layout <- function(x, show_regions = TRUE, show_ids = FALSE, ...) {
 #'   error.
 #' @export
 #' @examples
-#' pr_validate_layout(pr_layout_pedar())
+#' pr_validate_layout(pr_layout_insole())
 pr_validate_layout <- function(layout) {
   .validate_layout(layout)
 

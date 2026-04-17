@@ -12,7 +12,7 @@
 #'   `x_mm`, `y_mm`.
 #' @export
 #' @examples
-#' out <- pr_interpolate(pr_example_trial("pedar"), factor = 2)
+#' out <- pr_interpolate(pr_example_trial("insole"), factor = 2)
 #' dim(out$pressure_interp)
 pr_interpolate <- function(trial, factor = 2L) {
   .validate_trial(trial)
@@ -62,7 +62,7 @@ pr_interpolate <- function(trial, factor = 2L) {
 #' @return A [pr_trial] containing only frames with `time` in `[from, to]`.
 #' @export
 #' @examples
-#' tr <- pr_filter_time(pr_example_trial("pedar"), from = 1, to = 3)
+#' tr <- pr_filter_time(pr_example_trial("insole"), from = 1, to = 3)
 #' tr$duration
 pr_filter_time <- function(trial, from = 0, to = Inf) {
   .validate_trial(trial)
@@ -89,7 +89,7 @@ pr_filter_time <- function(trial, from = 0, to = Inf) {
 #' @return A [pr_trial] object with reduced frame count.
 #' @export
 #' @examples
-#' tr <- pr_downsample(pr_example_trial("pedar"), factor = 2)
+#' tr <- pr_downsample(pr_example_trial("insole"), factor = 2)
 #' tr$n_frames
 pr_downsample <- function(trial, factor = 2L) {
   .validate_trial(trial)

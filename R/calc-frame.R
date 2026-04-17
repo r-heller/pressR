@@ -22,7 +22,7 @@
 #' @return Numeric vector of length `n_frames`.
 #' @export
 #' @examples
-#' trial <- pr_example_trial("pedar")
+#' trial <- pr_example_trial("insole")
 #' pp <- pr_calc_peak_pressure(trial)
 #' length(pp) == trial$n_frames
 pr_calc_peak_pressure <- function(trial, threshold = 0) {

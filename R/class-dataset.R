@@ -11,8 +11,8 @@
 #' @return A `pr_dataset` S3 object.
 #' @export
 #' @examples
-#' t1 <- pr_example_trial("pedar", seed = 1)
-#' t2 <- pr_example_trial("pedar", seed = 2)
+#' t1 <- pr_example_trial("insole", seed = 1)
+#' t2 <- pr_example_trial("insole", seed = 2)
 #' ds <- pr_dataset(list(t1, t2))
 #' print(ds)
 pr_dataset <- function(trials, group_var = "condition", name = "dataset") {

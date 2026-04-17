@@ -4,7 +4,7 @@
 #' of in-shoe or platform pressure data, segmenting the trial into
 #' individual stance phases.
 #'
-#' @param trial A [pr_trial] object from a pedar or emed recording.
+#' @param trial A [pr_trial] object from an insole or platform recording.
 #' @param force_threshold Numeric. Force threshold (N) for foot contact
 #'   detection. Default `20`.
 #' @param min_stance_ms Numeric. Minimum stance duration (ms). Shorter
@@ -14,7 +14,7 @@
 #' @return A [tibble::tibble] with one row per detected cycle.
 #' @export
 #' @examples
-#' cycles <- pr_calc_gait_cycles(pr_example_trial("pedar"))
+#' cycles <- pr_calc_gait_cycles(pr_example_trial("insole"))
 #' cycles
 pr_calc_gait_cycles <- function(trial, force_threshold = 20,
                                 min_stance_ms = 200, min_swing_ms = 100) {

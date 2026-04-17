@@ -1,5 +1,5 @@
 test_that("pr_summary returns a one-row tibble with expected columns", {
-  trial <- pr_example_trial("pedar")
+  trial <- pr_example_trial("insole")
   s <- pr_summary(trial)
   expect_s3_class(s, "tbl_df")
   expect_equal(nrow(s), 1L)

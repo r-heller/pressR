@@ -1,18 +1,18 @@
 test_that("pr_plot_heatmap returns a ggplot", {
-  trial <- pr_example_trial("pedar")
+  trial <- pr_example_trial("insole")
   p <- pr_plot_heatmap(trial)
   expect_s3_class(p, "ggplot")
 })
 
 test_that("pr_plot_heatmap works with frame argument", {
-  trial <- pr_example_trial("pedar")
+  trial <- pr_example_trial("insole")
   p <- pr_plot_heatmap(trial, frame = 1)
   expect_s3_class(p, "ggplot")
 })
 
 test_that("pr_plot_heatmap supports all documented palettes", {
   trial <- pr_example_trial("custom")
-  for (pal in c("viridis", "inferno", "plasma", "magma", "jet", "novel")) {
+  for (pal in c("viridis", "inferno", "plasma", "magma", "jet", "classic")) {
     p <- pr_plot_heatmap(trial, palette = pal)
     expect_s3_class(p, "ggplot")
   }
@@ -25,7 +25,7 @@ test_that("pr_plot_heatmap_masked overlays regions", {
 })
 
 test_that("dynamics plots return ggplot", {
-  trial <- pr_example_trial("pedar")
+  trial <- pr_example_trial("insole")
   expect_s3_class(pr_plot_force_time(trial), "ggplot")
   expect_s3_class(pr_plot_pressure_time(trial), "ggplot")
   expect_s3_class(pr_plot_cop(trial), "ggplot")
@@ -46,8 +46,8 @@ test_that("composite saddle report builds", {
 })
 
 test_that("pr_plot_comparison builds all types", {
-  a <- pr_example_trial("pedar", seed = 1)
-  b <- pr_example_trial("pedar", seed = 2)
+  a <- pr_example_trial("insole", seed = 1)
+  b <- pr_example_trial("insole", seed = 2)
   expect_true(inherits(pr_plot_comparison(a, b, "heatmap"),
                         c("patchwork", "ggplot")))
   expect_s3_class(pr_plot_comparison(a, b, "difference"), "ggplot")

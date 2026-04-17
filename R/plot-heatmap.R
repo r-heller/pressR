@@ -35,7 +35,7 @@
       colours = c("#000080", "#0000FF", "#00FFFF", "#FFFF00", "#FF0000", "#800000"),
       limits = range, name = name, na.value = "white"
     ),
-    novel = ggplot2::scale_fill_gradientn(
+    classic = ggplot2::scale_fill_gradientn(
       colours = c("#002A5A", "#006EB9", "#33AD5C", "#F2E300", "#EC6C1D", "#C21D1D"),
       limits = range, name = name, na.value = "white"
     ),
@@ -56,7 +56,7 @@
 #'   `"contact"` (contact frequency).
 #' @param show_regions Logical. Overlay region boundaries. Default `FALSE`.
 #' @param palette Character. One of `"viridis"` (default), `"inferno"`,
-#'   `"plasma"`, `"magma"`, `"jet"`, `"novel"`.
+#'   `"plasma"`, `"magma"`, `"jet"`, `"classic"`.
 #' @param range Numeric vector of length 2. Colour range. `NULL` auto-scales.
 #' @param interpolate Logical. Reserved for spatial interpolation (currently
 #'   draws the raw sensor grid). Default `FALSE`.
@@ -65,7 +65,7 @@
 #' @return A `ggplot2` object.
 #' @export
 #' @examples
-#' trial <- pr_example_trial("pedar")
+#' trial <- pr_example_trial("insole")
 #' pr_plot_heatmap(trial)
 pr_plot_heatmap <- function(trial, frame = NULL,
                             type = c("mpp", "mvp", "pti", "contact"),
@@ -221,7 +221,7 @@ pr_plot_3d <- function(trial, frame = NULL, palette = "viridis") {
     plasma  = "Plasma",
     magma   = "Magma",
     jet     = "Jet",
-    novel   = "Portland",
+    classic   = "Portland",
     "Viridis"
   )
 

@@ -22,16 +22,16 @@ reference:
     contents:
       - pr_read_ascii
       - pr_read_csv
-      - pr_read_loadsol
+      - pr_read_forcesensor
       - pr_read_mask
       - pr_read_auto
   - title: "Sensor Layouts"
     desc: "Predefined and custom sensor coordinate layouts"
     contents:
       - pr_layout
-      - pr_layout_pedar
-      - pr_layout_emed
-      - pr_layout_pliance
+      - pr_layout_insole
+      - pr_layout_platform
+      - pr_layout_mat
       - pr_layout_saddle
       - pr_layout_seat
       - pr_layout_glove

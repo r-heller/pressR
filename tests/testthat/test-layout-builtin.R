@@ -1,24 +1,24 @@
-test_that("pr_layout_pedar() returns a valid layout", {
-  layout <- pr_layout_pedar()
+test_that("pr_layout_insole() returns a valid layout", {
+  layout <- pr_layout_insole()
   expect_s3_class(layout, "pr_layout")
   expect_equal(layout$n_sensors, 99L)
   expect_true(length(layout$regions) >= 5L)
 })
 
-test_that("pr_layout_pedar('wide') has same sensor count", {
-  layout <- pr_layout_pedar("wide")
+test_that("pr_layout_insole('wide') has same sensor count", {
+  layout <- pr_layout_insole("wide")
   expect_equal(layout$n_sensors, 99L)
 })
 
-test_that("pr_layout_emed() exposes expected grid sizes", {
-  expect_equal(pr_layout_emed("st")$grid_rows, 64L)
-  expect_equal(pr_layout_emed("xl")$grid_rows, 96L)
-  expect_equal(pr_layout_emed("cl")$grid_rows, 48L)
+test_that("pr_layout_platform() exposes expected grid sizes", {
+  expect_equal(pr_layout_platform("st")$grid_rows, 64L)
+  expect_equal(pr_layout_platform("xl")$grid_rows, 96L)
+  expect_equal(pr_layout_platform("cl")$grid_rows, 48L)
 })
 
-test_that("pr_layout_pliance() returns full grid layouts", {
-  expect_equal(pr_layout_pliance("16")$n_sensors, 256L)
-  expect_equal(pr_layout_pliance("32")$n_sensors, 1024L)
+test_that("pr_layout_mat() returns full grid layouts", {
+  expect_equal(pr_layout_mat("16")$n_sensors, 256L)
+  expect_equal(pr_layout_mat("32")$n_sensors, 1024L)
 })
 
 test_that("pr_layout_saddle('horse') has 6 named regions", {

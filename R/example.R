@@ -2,7 +2,7 @@
 # Synthetic data generators for examples, tests, and vignettes.
 #
 # The generated data mimics typical pressure patterns for each application
-# (gait cycles for pedar, horse-walk kinematics for saddle, etc.) and is
+# (gait cycles for insole, horse-walk kinematics for saddle, etc.) and is
 # intended to be visually plausible, not biomechanically accurate.
 # ---------------------------------------------------------------------------
 
@@ -12,7 +12,7 @@
 #' demonstration, testing, and vignette purposes.
 #'
 #' @param type Character. Type of trial to generate:
-#'   `"pedar"`, `"emed"`, `"saddle_horse"`, `"saddle_bicycle"`,
+#'   `"insole"`, `"platform"`, `"saddle_horse"`, `"saddle_bicycle"`,
 #'   `"wheelchair"`, or `"custom"` (small uniform grid).
 #' @param duration_s Numeric. Trial duration in seconds. `NULL` (default)
 #'   uses a type-specific default.
@@ -22,9 +22,9 @@
 #' @return A [pr_trial] object.
 #' @export
 #' @examples
-#' trial <- pr_example_trial("pedar")
+#' trial <- pr_example_trial("insole")
 #' print(trial)
-pr_example_trial <- function(type = c("pedar", "emed", "saddle_horse",
+pr_example_trial <- function(type = c("insole", "platform", "saddle_horse",
                                       "saddle_bicycle", "wheelchair",
                                       "custom"),
                              duration_s = NULL, sampling_hz = 50,
@@ -34,8 +34,8 @@ pr_example_trial <- function(type = c("pedar", "emed", "saddle_horse",
 
   switch(
     type,
-    pedar          = .example_pedar(duration_s %||% 5, sampling_hz),
-    emed           = .example_emed(duration_s %||% 2, sampling_hz),
+    insole         = .example_insole(duration_s %||% 5, sampling_hz),
+    platform       = .example_platform(duration_s %||% 2, sampling_hz),
     saddle_horse   = .example_saddle_horse(duration_s %||% 10, sampling_hz),
     saddle_bicycle = .example_saddle_bicycle(duration_s %||% 10, sampling_hz),
     wheelchair     = .example_wheelchair(duration_s %||% 10, sampling_hz),
@@ -49,14 +49,13 @@ pr_example_trial <- function(type = c("pedar", "emed", "saddle_horse",
   amp * exp(-d2 / (2 * sigma^2))
 }
 
-# ---- pedar (foot gait) ----------------------------------------------------
-.example_pedar <- function(duration_s, hz) {
-  layout <- pr_layout_pedar("standard")
+# ---- insole (foot gait) ---------------------------------------------------
+.example_insole <- function(duration_s, hz) {
+  layout <- pr_layout_insole("standard")
   coords <- layout$coords_mm
   n_frames <- ceiling(duration_s * hz)
   t <- seq(0, duration_s, length.out = n_frames)
 
-  # Five gait cycles over duration_s (if duration_s = 5s, one step per sec)
   stride <- duration_s / 5
   stance_frac <- 0.6
 
@@ -74,14 +73,9 @@ pr_example_trial <- function(type = c("pedar", "emed", "saddle_horse",
     phase <- tt / stride
     if (phase > stance_frac) next
 
-    # Normalize stance phase 0..1
     sp <- phase / stance_frac
-
-    # Heel: peaks at sp = 0.15
     heel_amp <- 220 * exp(-((sp - 0.15) / 0.08)^2)
-    # Metatarsal heads: peak sp = 0.75
     met_amp  <- 330 * exp(-((sp - 0.75) / 0.15)^2)
-    # Hallux: peak sp = 0.92
     hal_amp  <- 260 * exp(-((sp - 0.92) / 0.08)^2)
 
     vals <- .blob(coords, x_mid, y_heel + 10, heel_amp, 18) +
@@ -90,7 +84,6 @@ pr_example_trial <- function(type = c("pedar", "emed", "saddle_horse",
             .blob(coords, x_lat, y_met,       met_amp * 0.8, 14) +
             .blob(coords, x_med, y_hal,       hal_amp, 12)
 
-    # Add noise proportional to peak
     noise <- stats::rnorm(layout$n_sensors, 0, 5)
     vals <- vals + noise
     vals[vals < 0] <- 0
@@ -103,19 +96,19 @@ pr_example_trial <- function(type = c("pedar", "emed", "saddle_horse",
     layout = layout,
     metadata = list(
       subject_id = "EX01",
-      trial_id = "pedar_gait",
+      trial_id = "insole_gait",
       date = format(Sys.Date()),
       condition = "walking",
-      system = "pedar",
+      system = "insole",
       notes = "Synthetic 5-step gait trial"
     ),
     sampling_hz = hz
   )
 }
 
-# ---- emed (platform barefoot) --------------------------------------------
-.example_emed <- function(duration_s, hz) {
-  layout <- pr_layout_emed("st")
+# ---- platform (barefoot) --------------------------------------------------
+.example_platform <- function(duration_s, hz) {
+  layout <- pr_layout_platform("st")
   coords <- layout$coords_mm
   n_frames <- ceiling(duration_s * hz)
   t <- seq(0, duration_s, length.out = n_frames)
@@ -123,7 +116,6 @@ pr_example_trial <- function(type = c("pedar", "emed", "saddle_horse",
   cx <- stats::median(coords$x_mm)
   cy <- stats::median(coords$y_mm)
 
-  # Single footfall in the center
   P <- matrix(0, nrow = n_frames, ncol = layout$n_sensors)
   for (i in seq_len(n_frames)) {
     phase <- t[i] / duration_s
@@ -145,22 +137,21 @@ pr_example_trial <- function(type = c("pedar", "emed", "saddle_horse",
   pr_trial(
     pressure = P, time = t, layout = layout,
     metadata = list(
-      subject_id = "EX01", trial_id = "emed_rollover",
+      subject_id = "EX01", trial_id = "platform_rollover",
       date = format(Sys.Date()), condition = "barefoot",
-      system = "emed", notes = "Synthetic rollover footfall"
+      system = "platform", notes = "Synthetic rollover footfall"
     ),
     sampling_hz = hz
   )
 }
 
-# ---- saddle horse --------------------------------------------------------
+# ---- saddle horse ---------------------------------------------------------
 .example_saddle_horse <- function(duration_s, hz) {
   layout <- pr_layout_saddle("horse")
   coords <- layout$coords_mm
   n_frames <- ceiling(duration_s * hz)
   t <- seq(0, duration_s, length.out = n_frames)
 
-  # Walk stride ~1.4 Hz; left and right sides antiphase
   freq <- 1.4
   x_range <- range(coords$x_mm)
   y_range <- range(coords$y_mm)
@@ -175,7 +166,6 @@ pr_example_trial <- function(type = c("pedar", "emed", "saddle_horse",
     left_env  <- 10 + 6 * sin(2 * pi * freq * tt)
     right_env <- 10 + 6 * sin(2 * pi * freq * tt + pi)
 
-    # Slight 10% left dominance
     left_env  <- left_env  * 1.10
     right_env <- right_env * 0.95
 
@@ -200,7 +190,7 @@ pr_example_trial <- function(type = c("pedar", "emed", "saddle_horse",
     metadata = list(
       subject_id = "HORSE01", trial_id = "saddle_walk",
       date = format(Sys.Date()), condition = "walk",
-      system = "pliance", notes = "Synthetic saddle walk trial"
+      system = "saddle_mat", notes = "Synthetic saddle walk trial"
     ),
     sampling_hz = hz
   )
@@ -235,7 +225,7 @@ pr_example_trial <- function(type = c("pedar", "emed", "saddle_horse",
     metadata = list(
       subject_id = "CYC01", trial_id = "bicycle_ride",
       date = format(Sys.Date()), condition = "seated",
-      system = "pliance", notes = "Synthetic bicycle saddle"
+      system = "saddle_mat", notes = "Synthetic bicycle saddle"
     ),
     sampling_hz = hz
   )
@@ -274,7 +264,7 @@ pr_example_trial <- function(type = c("pedar", "emed", "saddle_horse",
     metadata = list(
       subject_id = "WC01", trial_id = "wheelchair_static",
       date = format(Sys.Date()), condition = "seated",
-      system = "pliance", notes = "Synthetic wheelchair static sitting"
+      system = "seat_mat", notes = "Synthetic wheelchair static sitting"
     ),
     sampling_hz = hz
   )
@@ -282,7 +272,7 @@ pr_example_trial <- function(type = c("pedar", "emed", "saddle_horse",
 
 # ---- custom (small uniform grid) -----------------------------------------
 .example_custom <- function(duration_s, hz) {
-  layout <- pr_layout_pliance("16")
+  layout <- pr_layout_mat("16")
   coords <- layout$coords_mm
   n_frames <- ceiling(duration_s * hz)
   t <- seq(0, duration_s, length.out = n_frames)
@@ -303,7 +293,7 @@ pr_example_trial <- function(type = c("pedar", "emed", "saddle_horse",
     metadata = list(
       subject_id = "EX", trial_id = "custom",
       date = format(Sys.Date()), condition = "demo",
-      system = "pliance", notes = "Synthetic uniform 16x16 mat."
+      system = "mat", notes = "Synthetic uniform 16x16 mat."
     ),
     sampling_hz = hz
   )
@@ -311,19 +301,20 @@ pr_example_trial <- function(type = c("pedar", "emed", "saddle_horse",
 
 #' Write Sample Pressure Data Files
 #'
-#' Creates sample ASCII files mimicking the novel export format in a
-#' temporary directory, for demonstrating the parser functions.
+#' Creates sample ASCII files in a temporary directory for demonstrating
+#' the parser functions.
 #'
-#' @param type Character. `"pedar"` (default), `"saddle"`, `"emed"`, or
-#'   `"all"`.
+#' @param type Character. `"insole"` (default), `"saddle"`, `"platform"`,
+#'   or `"all"`.
 #'
 #' @return Character. Path to the sample file (single type) or directory
 #'   (`"all"`).
 #' @export
 #' @examples
-#' path <- pr_example_files("pedar")
+#' path <- pr_example_files("insole")
 #' file.exists(path)
-pr_example_files <- function(type = c("pedar", "saddle", "emed", "all")) {
+pr_example_files <- function(type = c("insole", "saddle", "platform",
+                                      "all")) {
   type <- match.arg(type)
   dir <- file.path(tempdir(), "pressR-samples")
   dir.create(dir, recursive = TRUE, showWarnings = FALSE)
@@ -334,7 +325,7 @@ pr_example_files <- function(type = c("pedar", "saddle", "emed", "all")) {
       sprintf("Patient:        %s", trial$metadata$subject_id %||% "Example"),
       sprintf("Date:           %s", format(Sys.time(), "%Y-%m-%d %H:%M:%S")),
       sprintf("System:         %s", system_label),
-      sprintf("Insole Size:    %s", size_label),
+      sprintf("Size:           %s", size_label),
       sprintf("Sensors:        %d", trial$n_sensors),
       sprintf("Sampling Rate:  %d Hz", round(trial$sampling_hz)),
       sprintf("Duration:       %.2f s", trial$duration),
@@ -342,7 +333,6 @@ pr_example_files <- function(type = c("pedar", "saddle", "emed", "all")) {
       ""
     )
     writeLines(header, path)
-    # Append pressure matrix (tab-separated) with modest precision
     con <- file(path, open = "a")
     on.exit(close(con), add = TRUE)
     utils::write.table(
@@ -353,19 +343,19 @@ pr_example_files <- function(type = c("pedar", "saddle", "emed", "all")) {
   }
 
   paths <- character()
-  if (type %in% c("pedar", "all")) {
-    paths["pedar"] <- write_one(
-      "pedar_sample", pr_example_trial("pedar"), "pedar", "42"
+  if (type %in% c("insole", "all")) {
+    paths["insole"] <- write_one(
+      "insole_sample", pr_example_trial("insole"), "insole", "42"
     )
   }
   if (type %in% c("saddle", "all")) {
     paths["saddle"] <- write_one(
-      "saddle_sample", pr_example_trial("saddle_horse"), "pliance", "saddle"
+      "saddle_sample", pr_example_trial("saddle_horse"), "saddle_mat", "saddle"
     )
   }
-  if (type %in% c("emed", "all")) {
-    paths["emed"] <- write_one(
-      "emed_sample", pr_example_trial("emed"), "emed", "st"
+  if (type %in% c("platform", "all")) {
+    paths["platform"] <- write_one(
+      "platform_sample", pr_example_trial("platform"), "platform", "st"
     )
   }
 

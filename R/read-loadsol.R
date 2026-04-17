@@ -1,9 +1,10 @@
-#' Read loadsol Force Data
+#' Read Force Sensor Data
 #'
-#' Parses a CSV exported from novel's loadsol app. The loadsol system
-#' records a small number of force zones (not a full pressure matrix);
-#' this parser returns a simplified [pr_trial] where each "sensor" is a
-#' force zone. Pressure values are reported in Newtons.
+#' Parses a CSV file containing force data from a portable force-sensing
+#' insole or similar device. These systems typically record a small number
+#' of force zones (not a full pressure matrix); this parser returns a
+#' simplified [pr_trial] where each "sensor" represents a force zone.
+#' Pressure values are reported in Newtons.
 #'
 #' @param path Character. Path to the CSV file.
 #' @param force_cols Character vector. Names of force columns. If `NULL`,
@@ -21,10 +22,10 @@
 #'                  mid  = runif(101, 0, 150),
 #'                  fore = runif(101, 0, 300))
 #' utils::write.csv(df, tmp, row.names = FALSE)
-#' trial <- pr_read_loadsol(tmp, verbose = FALSE)
+#' trial <- pr_read_forcesensor(tmp, verbose = FALSE)
 #' trial$n_sensors
-pr_read_loadsol <- function(path, force_cols = NULL, time_col = "time",
-                            verbose = TRUE) {
+pr_read_forcesensor <- function(path, force_cols = NULL, time_col = "time",
+                                verbose = TRUE) {
   if (!file.exists(path)) {
     cli::cli_abort("File not found: {.path {path}}.")
   }
@@ -46,7 +47,6 @@ pr_read_loadsol <- function(path, force_cols = NULL, time_col = "time",
   storage.mode(mat) <- "double"
 
   n_zones <- ncol(mat)
-  # Construct a 1 x n_zones "layout"
   active <- matrix(TRUE, 1L, n_zones)
   coords <- tibble::tibble(
     sensor_id = seq_len(n_zones),
@@ -61,23 +61,23 @@ pr_read_loadsol <- function(path, force_cols = NULL, time_col = "time",
     sensor_area_cm2 = 1,
     pressure_range = c(0, max(mat, na.rm = TRUE)),
     pressure_unit = "N",
-    name = "loadsol",
-    description = "loadsol force zones (one sensor per zone).",
-    manufacturer = "novel GmbH",
-    model = "loadsol"
+    name = "force_sensor",
+    description = "Force sensor zones (one sensor per zone).",
+    manufacturer = "",
+    model = "force_sensor"
   )
 
   dt <- if (length(t) >= 2L) mean(diff(t)) else 1 / 50
   hz <- 1 / dt
 
   if (verbose) {
-    cli::cli_inform("Read loadsol file with {n_zones} zone(s), {nrow(mat)} frame(s).")
+    cli::cli_inform("Read force sensor file with {n_zones} zone(s), {nrow(mat)} frame(s).")
   }
   pr_trial(
     pressure = mat, time = t, layout = layout,
     metadata = list(
       trial_id = tools::file_path_sans_ext(basename(path)),
-      system = "loadsol",
+      system = "force_sensor",
       zones = paste(force_cols, collapse = ",")
     ),
     sampling_hz = hz

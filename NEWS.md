@@ -4,16 +4,16 @@
 
 ### Parsers
 
-* `pr_read_ascii()`: Parse novel ASCII pressure data exports.
+* `pr_read_ascii()`: Parse ASCII pressure data exports.
 * `pr_read_csv()`: Parse generic CSV pressure data (wide or long).
-* `pr_read_loadsol()`: Parse loadsol force data.
-* `pr_read_mask()`: Parse novel mask files.
+* `pr_read_forcesensor()`: Parse force sensor data.
+* `pr_read_mask()`: Parse region mask files.
 * `pr_read_auto()`: Auto-detect and dispatch.
 
 ### Sensor Layouts
 
 * `pr_layout()`: Construct custom layouts.
-* `pr_layout_pedar()`, `pr_layout_emed()`, `pr_layout_pliance()`,
+* `pr_layout_insole()`, `pr_layout_platform()`, `pr_layout_mat()`,
   `pr_layout_saddle()`, `pr_layout_seat()`, `pr_layout_glove()`:
   predefined layouts.
 * `pr_layout_list()` lists available layouts.

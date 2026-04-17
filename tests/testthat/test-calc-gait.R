@@ -1,5 +1,5 @@
 test_that("pr_calc_gait_cycles detects cycles in example data", {
-  trial <- pr_example_trial("pedar")
+  trial <- pr_example_trial("insole")
   cycles <- pr_calc_gait_cycles(trial)
   expect_s3_class(cycles, "tbl_df")
   expect_true(nrow(cycles) >= 1L)
@@ -8,7 +8,7 @@ test_that("pr_calc_gait_cycles detects cycles in example data", {
 })
 
 test_that("pr_calc_rollover returns resampled trajectory", {
-  trial <- pr_example_trial("pedar")
+  trial <- pr_example_trial("insole")
   roll <- pr_calc_rollover(trial)
   expect_s3_class(roll, "tbl_df")
   if (nrow(roll) > 0L) {
