@@ -29,6 +29,6 @@ Represents a single pressure measurement recording: a time series of
 pressure frames measured across a sensor layout.
 }
 \examples{
-trial <- pr_example_trial("pedar")
+trial <- pr_example_trial("insole")
 print(trial)
 }

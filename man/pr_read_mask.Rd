@@ -2,7 +2,7 @@
 % Please edit documentation in R/read-mask.R
 \name{pr_read_mask}
 \alias{pr_read_mask}
-\title{Read novel Mask File}
+\title{Read Mask File}
 \usage{
 pr_read_mask(path, layout = NULL, name = "imported", verbose = TRUE)
 }
@@ -23,9 +23,9 @@ A \link{pr_mask} object (if a layout is supplied) or a logical
 matrix.
 }
 \description{
-Parses \code{.msa} / \code{.msr} / \code{.msp} mask files exported from the novel
-software. The expected format is a text matrix of 0/1 (or non-zero)
-values, optionally preceded by a short header.
+Parses \code{.msa} / \code{.msr} / \code{.msp} mask files or any text file containing
+a binary region matrix. The expected format is a text matrix of 0/1
+(or non-zero) values, optionally preceded by a short header.
 }
 \examples{
 tmp <- tempfile(fileext = ".msa")

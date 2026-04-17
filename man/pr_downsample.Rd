@@ -18,6 +18,6 @@ A \link{pr_trial} object with reduced frame count.
 Keeps every \code{factor}-th frame.
 }
 \examples{
-tr <- pr_downsample(pr_example_trial("pedar"), factor = 2)
+tr <- pr_downsample(pr_example_trial("insole"), factor = 2)
 tr$n_frames
 }

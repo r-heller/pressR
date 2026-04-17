@@ -28,7 +28,7 @@ shows the summary picture specified by \code{type}.}
 \code{"contact"} (contact frequency).}
 
 \item{palette}{Character. One of \code{"viridis"} (default), \code{"inferno"},
-\code{"plasma"}, \code{"magma"}, \code{"jet"}, \code{"novel"}.}
+\code{"plasma"}, \code{"magma"}, \code{"jet"}, \code{"classic"}.}
 
 \item{range}{Numeric vector of length 2. Colour range. \code{NULL} auto-scales.}
 

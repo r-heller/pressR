@@ -2,7 +2,7 @@
 % Please edit documentation in R/read-ascii.R
 \name{pr_read_ascii}
 \alias{pr_read_ascii}
-\title{Read novel ASCII Pressure Data Export}
+\title{Read ASCII Pressure Data Export}
 \usage{
 pr_read_ascii(
   path,
@@ -33,12 +33,12 @@ detects tab/space/comma/semicolon.}
 A \link{pr_trial} object.
 }
 \description{
-Parses ASCII data files exported from novel emed, pedar, or pliance
-software. Automatically detects header format and extracts metadata,
-the pressure matrix, and timing.
+Parses ASCII data files containing pressure sensor data. Automatically
+detects header format and extracts metadata, the pressure matrix, and
+timing.
 }
 \examples{
-path <- pr_example_files("pedar")
+path <- pr_example_files("insole")
 trial <- pr_read_ascii(path, verbose = FALSE)
 trial$n_frames
 }

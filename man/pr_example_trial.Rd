@@ -5,7 +5,8 @@
 \title{Generate a Synthetic Pressure Trial}
 \usage{
 pr_example_trial(
-  type = c("pedar", "emed", "saddle_horse", "saddle_bicycle", "wheelchair", "custom"),
+  type = c("insole", "platform", "saddle_horse", "saddle_bicycle", "wheelchair",
+    "custom"),
   duration_s = NULL,
   sampling_hz = 50,
   seed = 42
@@ -13,7 +14,7 @@ pr_example_trial(
 }
 \arguments{
 \item{type}{Character. Type of trial to generate:
-\code{"pedar"}, \code{"emed"}, \code{"saddle_horse"}, \code{"saddle_bicycle"},
+\code{"insole"}, \code{"platform"}, \code{"saddle_horse"}, \code{"saddle_bicycle"},
 \code{"wheelchair"}, or \code{"custom"} (small uniform grid).}
 
 \item{duration_s}{Numeric. Trial duration in seconds. \code{NULL} (default)
@@ -31,6 +32,6 @@ Creates a \link{pr_trial} with realistic synthetic pressure data for
 demonstration, testing, and vignette purposes.
 }
 \examples{
-trial <- pr_example_trial("pedar")
+trial <- pr_example_trial("insole")
 print(trial)
 }

@@ -17,5 +17,5 @@ error.
 Checks internal consistency of a \link{pr_layout} object.
 }
 \examples{
-pr_validate_layout(pr_layout_pedar())
+pr_validate_layout(pr_layout_insole())
 }

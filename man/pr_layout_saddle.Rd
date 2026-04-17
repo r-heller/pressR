@@ -16,9 +16,9 @@ ischial/perineal regions.}
 A \link{pr_layout} with application-specific region masks.
 }
 \description{
-Returns a \link{pr_layout} for saddle pressure measurement using pliance
-sensor mats. Includes predefined region masks based on published
-research protocols.
+Returns a \link{pr_layout} for saddle pressure measurement using a
+capacitive sensor mat. Includes predefined region masks based on
+published research protocols.
 }
 \examples{
 layout <- pr_layout_saddle("horse")

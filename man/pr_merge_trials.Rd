@@ -20,7 +20,7 @@ Merge Trials into a Dataset
 }
 \examples{
 pr_merge_trials(
-  pr_example_trial("pedar", seed = 1),
-  pr_example_trial("pedar", seed = 2)
+  pr_example_trial("insole", seed = 1),
+  pr_example_trial("insole", seed = 2)
 )
 }

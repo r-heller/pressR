@@ -36,6 +36,6 @@ an entire trial. Returns a single-row tibble suitable for row-binding
 across trials in batch analysis.
 }
 \examples{
-trial <- pr_example_trial("pedar")
+trial <- pr_example_trial("insole")
 pr_summary(trial)
 }

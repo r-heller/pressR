@@ -7,7 +7,7 @@
 pr_plot_foot_report(trial)
 }
 \arguments{
-\item{trial}{A \link{pr_trial} object from a pedar or emed recording.}
+\item{trial}{A \link{pr_trial} object from an insole or platform recording.}
 }
 \value{
 A \code{patchwork} object.
@@ -17,5 +17,5 @@ Composite figure for foot pressure analysis: MPP map, regional bar
 chart, force-time curve, COP trajectory.
 }
 \examples{
-pr_plot_foot_report(pr_example_trial("pedar"))
+pr_plot_foot_report(pr_example_trial("insole"))
 }

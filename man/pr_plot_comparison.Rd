@@ -29,7 +29,7 @@ Produces a side-by-side heatmap comparison, a difference map, or a
 parameter-table plot for two trials.
 }
 \examples{
-a <- pr_example_trial("pedar", seed = 1)
-b <- pr_example_trial("pedar", seed = 2)
+a <- pr_example_trial("insole", seed = 1)
+b <- pr_example_trial("insole", seed = 2)
 pr_plot_comparison(a, b, type = "difference")
 }

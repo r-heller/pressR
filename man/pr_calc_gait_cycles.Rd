@@ -12,7 +12,7 @@ pr_calc_gait_cycles(
 )
 }
 \arguments{
-\item{trial}{A \link{pr_trial} object from a pedar or emed recording.}
+\item{trial}{A \link{pr_trial} object from an insole or platform recording.}
 
 \item{force_threshold}{Numeric. Force threshold (N) for foot contact
 detection. Default \code{20}.}
@@ -31,6 +31,6 @@ of in-shoe or platform pressure data, segmenting the trial into
 individual stance phases.
 }
 \examples{
-cycles <- pr_calc_gait_cycles(pr_example_trial("pedar"))
+cycles <- pr_calc_gait_cycles(pr_example_trial("insole"))
 cycles
 }

@@ -42,7 +42,7 @@ pressure in kPa.}
 \item{pressure_unit}{Character. Unit of pressure measurement. Default \code{"kPa"}.}
 
 \item{name}{Character. Short identifier for this layout
-(e.g., \code{"pedar_standard"}).}
+(e.g., \code{"insole_standard"}).}
 
 \item{description}{Character. Human-readable description.}
 

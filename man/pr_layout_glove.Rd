@@ -2,7 +2,7 @@
 % Please edit documentation in R/layouts.R
 \name{pr_layout_glove}
 \alias{pr_layout_glove}
-\title{Get Pliance Glove Sensor Layout}
+\title{Get Glove Sensor Layout}
 \usage{
 pr_layout_glove()
 }
@@ -10,6 +10,6 @@ pr_layout_glove()
 A \link{pr_layout} object.
 }
 \description{
-Returns a \link{pr_layout} for a pliance glove-style hand pressure sensor
+Returns a \link{pr_layout} for a glove-style hand pressure sensor
 (32 sensors across palm and fingertips).
 }

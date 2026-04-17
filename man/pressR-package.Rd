@@ -7,23 +7,15 @@
 \title{pressR: Pressure Distribution Analysis for Capacitive Sensor Systems}
 \description{
 Parse, analyze, and visualize pressure distribution data from capacitive
-sensor systems including novel emed, pedar, and pliance platforms.
-Provides predefined sensor coordinate layouts for in-shoe pressure
-measurement, saddle pressure mapping (equine and bicycle), seating
+sensor systems. Provides predefined sensor coordinate layouts for in-shoe
+pressure measurement, saddle pressure mapping (equine and bicycle), seating
 assessment, and barefoot pedography.
 }
-\section{Package disclaimer}{
-
-\code{pressR} is not affiliated with novel GmbH. Product names (emed, pedar,
-pliance, loadsol) are trademarks of novel GmbH, used here for
-identification purposes only.
-}
-
 \section{Main function families}{
 
 \itemize{
 \item Parsers: \code{\link[=pr_read_ascii]{pr_read_ascii()}}, \code{\link[=pr_read_csv]{pr_read_csv()}}, \code{\link[=pr_read_auto]{pr_read_auto()}}
-\item Layouts: \code{\link[=pr_layout]{pr_layout()}}, \code{\link[=pr_layout_pedar]{pr_layout_pedar()}}, \code{\link[=pr_layout_saddle]{pr_layout_saddle()}}, ...
+\item Layouts: \code{\link[=pr_layout]{pr_layout()}}, \code{\link[=pr_layout_insole]{pr_layout_insole()}}, \code{\link[=pr_layout_saddle]{pr_layout_saddle()}}, ...
 \item Analysis: \code{\link[=pr_summary]{pr_summary()}}, \code{\link[=pr_calc_cop]{pr_calc_cop()}}, \code{\link[=pr_calc_regional]{pr_calc_regional()}}
 \item Visualization: \code{\link[=pr_plot_heatmap]{pr_plot_heatmap()}}, \code{\link[=pr_plot_force_time]{pr_plot_force_time()}}
 \item Shiny app: \code{\link[=pr_run_app]{pr_run_app()}}

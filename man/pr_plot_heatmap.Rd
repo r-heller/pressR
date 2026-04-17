@@ -28,7 +28,7 @@ shows the summary picture specified by \code{type}.}
 \item{show_regions}{Logical. Overlay region boundaries. Default \code{FALSE}.}
 
 \item{palette}{Character. One of \code{"viridis"} (default), \code{"inferno"},
-\code{"plasma"}, \code{"magma"}, \code{"jet"}, \code{"novel"}.}
+\code{"plasma"}, \code{"magma"}, \code{"jet"}, \code{"classic"}.}
 
 \item{range}{Numeric vector of length 2. Colour range. \code{NULL} auto-scales.}
 
@@ -45,6 +45,6 @@ Displays a 2D heatmap for a single frame or a summary image
 (MPP, MVP, PTI, contact frequency).
 }
 \examples{
-trial <- pr_example_trial("pedar")
+trial <- pr_example_trial("insole")
 pr_plot_heatmap(trial)
 }

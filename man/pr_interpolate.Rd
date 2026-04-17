@@ -22,6 +22,6 @@ between active sensor positions to produce a smoother image. The
 underlying trial data is not modified.
 }
 \examples{
-out <- pr_interpolate(pr_example_trial("pedar"), factor = 2)
+out <- pr_interpolate(pr_example_trial("insole"), factor = 2)
 dim(out$pressure_interp)
 }

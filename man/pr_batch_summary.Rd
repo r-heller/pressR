@@ -18,8 +18,8 @@ results, prepending trial metadata columns.
 }
 \examples{
 ds <- pr_dataset(list(
-  pr_example_trial("pedar", seed = 1),
-  pr_example_trial("pedar", seed = 2)
+  pr_example_trial("insole", seed = 1),
+  pr_example_trial("insole", seed = 2)
 ))
 pr_batch_summary(ds)
 }

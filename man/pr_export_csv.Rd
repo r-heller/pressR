@@ -29,5 +29,5 @@ Export Analysis Results to CSV
 }
 \examples{
 tmp <- tempfile(fileext = ".csv")
-pr_export_csv(pr_example_trial("pedar"), tmp, what = "summary")
+pr_export_csv(pr_example_trial("insole"), tmp, what = "summary")
 }

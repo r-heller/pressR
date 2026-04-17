@@ -4,21 +4,21 @@
 \alias{pr_example_files}
 \title{Write Sample Pressure Data Files}
 \usage{
-pr_example_files(type = c("pedar", "saddle", "emed", "all"))
+pr_example_files(type = c("insole", "saddle", "platform", "all"))
 }
 \arguments{
-\item{type}{Character. \code{"pedar"} (default), \code{"saddle"}, \code{"emed"}, or
-\code{"all"}.}
+\item{type}{Character. \code{"insole"} (default), \code{"saddle"}, \code{"platform"},
+or \code{"all"}.}
 }
 \value{
 Character. Path to the sample file (single type) or directory
 (\code{"all"}).
 }
 \description{
-Creates sample ASCII files mimicking the novel export format in a
-temporary directory, for demonstrating the parser functions.
+Creates sample ASCII files in a temporary directory for demonstrating
+the parser functions.
 }
 \examples{
-path <- pr_example_files("pedar")
+path <- pr_example_files("insole")
 file.exists(path)
 }

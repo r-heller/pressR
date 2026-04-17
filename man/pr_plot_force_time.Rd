@@ -19,5 +19,5 @@ A \code{ggplot2} object.
 Plot Force vs Time
 }
 \examples{
-pr_plot_force_time(pr_example_trial("pedar"))
+pr_plot_force_time(pr_example_trial("insole"))
 }

@@ -20,6 +20,6 @@ A \link{pr_trial} containing only frames with \code{time} in \verb{[from, to]}.
 Subset a Trial to a Time Window
 }
 \examples{
-tr <- pr_filter_time(pr_example_trial("pedar"), from = 1, to = 3)
+tr <- pr_filter_time(pr_example_trial("insole"), from = 1, to = 3)
 tr$duration
 }

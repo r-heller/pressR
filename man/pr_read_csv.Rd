@@ -40,7 +40,7 @@ sensor) or long (tidy) format.
 tmp <- tempfile(fileext = ".csv")
 m <- matrix(runif(10 * 99, 0, 100), nrow = 10, ncol = 99)
 utils::write.csv(m, tmp, row.names = FALSE)
-trial <- pr_read_csv(tmp, format = "wide", layout = pr_layout_pedar(),
+trial <- pr_read_csv(tmp, format = "wide", layout = pr_layout_insole(),
                      verbose = FALSE)
 trial$n_frames
 }

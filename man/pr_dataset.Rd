@@ -22,8 +22,8 @@ A \code{pr_dataset} is a collection of \link{pr_trial} objects with shared
 grouping metadata, intended for batch analysis.
 }
 \examples{
-t1 <- pr_example_trial("pedar", seed = 1)
-t2 <- pr_example_trial("pedar", seed = 2)
+t1 <- pr_example_trial("insole", seed = 1)
+t2 <- pr_example_trial("insole", seed = 2)
 ds <- pr_dataset(list(t1, t2))
 print(ds)
 }

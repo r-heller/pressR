@@ -19,5 +19,5 @@ A \code{ggplot2} object.
 Plot Peak and Mean Pressure vs Time
 }
 \examples{
-pr_plot_pressure_time(pr_example_trial("pedar"))
+pr_plot_pressure_time(pr_example_trial("insole"))
 }

@@ -23,7 +23,7 @@ Inspects the file extension and header, then dispatches to the correct
 parser.
 }
 \examples{
-path <- pr_example_files("pedar")
+path <- pr_example_files("insole")
 tr <- pr_read_auto(path, verbose = FALSE)
 inherits(tr, "pr_trial")
 }

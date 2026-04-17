@@ -16,7 +16,7 @@ A \link[tibble:tibble]{tibble::tibble} with columns \code{region}, \code{paramet
 }
 \description{
 Returns published threshold values for equine saddle pressure
-assessment based on peer-reviewed studies using the pliance system.
+assessment based on peer-reviewed studies.
 }
 \examples{
 pr_ref_saddle()

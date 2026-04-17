@@ -7,7 +7,7 @@
 pr_mask_foot_auto(trial, n_regions = 7L, threshold = 1)
 }
 \arguments{
-\item{trial}{A \link{pr_trial} object from a platform (emed) recording.}
+\item{trial}{A \link{pr_trial} object from a pressure platform recording.}
 
 \item{n_regions}{Integer. \code{7} (default, full segmentation into heel,
 midfoot, met1, met2-3, met4-5, hallux, lesser toes) or \code{3}
@@ -20,8 +20,8 @@ loaded. Default \code{1.0}.}
 Named list of \link{pr_mask} objects.
 }
 \description{
-For platform recordings (typically from emed) where foot regions must
-be detected from the raw pressure matrix. Uses the maximum pressure
-picture (MPP) to identify the foot outline, then segments into
-anatomical regions based on proportional geometry.
+For platform recordings where foot regions must be detected from the
+raw pressure matrix. Uses the maximum pressure picture (MPP) to
+identify the foot outline, then segments into anatomical regions based
+on proportional geometry.
 }

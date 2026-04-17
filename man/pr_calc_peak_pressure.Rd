@@ -19,7 +19,7 @@ Numeric vector of length \code{n_frames}.
 Returns the maximum pressure across all active sensors for each frame.
 }
 \examples{
-trial <- pr_example_trial("pedar")
+trial <- pr_example_trial("insole")
 pp <- pr_calc_peak_pressure(trial)
 length(pp) == trial$n_frames
 }
