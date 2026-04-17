@@ -1,16 +1,9 @@
 # pressR: Pressure Distribution Analysis for Capacitive Sensor Systems
 
 Parse, analyze, and visualize pressure distribution data from capacitive
-sensor systems including novel emed, pedar, and pliance platforms.
-Provides predefined sensor coordinate layouts for in-shoe pressure
-measurement, saddle pressure mapping (equine and bicycle), seating
-assessment, and barefoot pedography.
-
-## Package disclaimer
-
-`pressR` is not affiliated with novel GmbH. Product names (emed, pedar,
-pliance, loadsol) are trademarks of novel GmbH, used here for
-identification purposes only.
+sensor systems. Provides predefined sensor coordinate layouts for
+in-shoe pressure measurement, saddle pressure mapping (equine and
+bicycle), seating assessment, and barefoot pedography.
 
 ## Main function families
 
@@ -21,7 +14,7 @@ identification purposes only.
 
 - Layouts:
   [`pr_layout()`](https://r-heller.github.io/pressR/reference/pr_layout.md),
-  [`pr_layout_pedar()`](https://r-heller.github.io/pressR/reference/pr_layout_pedar.md),
+  [`pr_layout_insole()`](https://r-heller.github.io/pressR/reference/pr_layout_insole.md),
   [`pr_layout_saddle()`](https://r-heller.github.io/pressR/reference/pr_layout_saddle.md),
   ...
 

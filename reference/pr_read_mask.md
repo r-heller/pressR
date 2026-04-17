@@ -1,8 +1,8 @@
-# Read novel Mask File
+# Read Mask File
 
-Parses `.msa` / `.msr` / `.msp` mask files exported from the novel
-software. The expected format is a text matrix of 0/1 (or non-zero)
-values, optionally preceded by a short header.
+Parses `.msa` / `.msr` / `.msp` mask files or any text file containing a
+binary region matrix. The expected format is a text matrix of 0/1 (or
+non-zero) values, optionally preceded by a short header.
 
 ## Usage
 

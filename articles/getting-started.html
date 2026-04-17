@@ -65,37 +65,32 @@
 <h2 id="what-pressr-does">What pressR does<a class="anchor" aria-label="anchor" href="#what-pressr-does"></a>
 </h2>
 <p><strong>pressR</strong> parses, analyzes, and visualizes pressure
-distribution data from capacitive sensor systems such as novel emed®,
-pedar®, and pliance®. It provides:</p>
+distribution data from capacitive sensor systems. It provides:</p>
 <ul>
-<li>Predefined sensor layouts (in-shoe, platform, saddle, seating,
-glove),</li>
-<li>Parsers for the novel ASCII export format and generic CSV,</li>
+<li>Predefined sensor layouts (in-shoe insoles, pressure platforms,
+saddle mats, seating mats, glove sensors),</li>
+<li>Parsers for ASCII and CSV pressure data files,</li>
 <li>A full analysis pipeline (per-frame metrics, trial summaries,
 regional analysis, gait-cycle detection, saddle-fit checks),</li>
 <li>
 <code>ggplot2</code>-based visualization and composite reports,</li>
 <li>An interactive Shiny application for data exploration.</li>
 </ul>
-<blockquote>
-<p><strong>Disclaimer.</strong> pressR is not affiliated with novel
-GmbH. Product names (emed, pedar, pliance, loadsol) are used for
-identification only.</p>
-</blockquote>
 </div>
 <div class="section level2">
 <h2 id="load-a-layout">Load a layout<a class="anchor" aria-label="anchor" href="#load-a-layout"></a>
 </h2>
 <p>Every trial is tied to a <code>pr_layout</code> object that describes
-the sensor geometry. For example, the pedar in-shoe insole:</p>
+the sensor geometry. For example, a 99-sensor in-shoe pressure
+insole:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">layout</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/pr_layout_pedar.html">pr_layout_pedar</a></span><span class="op">(</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">layout</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/pr_layout_insole.html">pr_layout_insole</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">layout</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">pr_layout: pedar_standard</span> <span style="color: #00BBBB;">───────────────────────────────────────────────────</span></span></span>
-<span><span class="co">#&gt; pedar in-shoe pressure insole (99 sensors, standard).</span></span>
-<span><span class="co">#&gt; • Manufacturer: <span style="color: #0000BB;">"novel GmbH"</span></span></span>
-<span><span class="co">#&gt; • Model: <span style="color: #0000BB;">"pedar"</span></span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">pr_layout: insole_standard</span> <span style="color: #00BBBB;">──────────────────────────────────────────────────</span></span></span>
+<span><span class="co">#&gt; In-shoe pressure insole (99 sensors, standard).</span></span>
+<span><span class="co">#&gt; • Manufacturer: <span style="color: #0000BB;">""</span></span></span>
+<span><span class="co">#&gt; • Model: <span style="color: #0000BB;">"insole"</span></span></span>
 <span><span class="co">#&gt; • Grid: <span style="color: #0000BB;">18</span> x <span style="color: #0000BB;">8</span></span></span>
 <span><span class="co">#&gt; • Active sensors: <span style="color: #0000BB;">99</span></span></span>
 <span><span class="co">#&gt; • Sensor area: <span style="color: #0000BB;">1.5</span> cm²</span></span>
@@ -111,12 +106,12 @@ the sensor geometry. For example, the pedar in-shoe insole:</p>
 each supported application. This is useful for quick demos, tests, and
 vignettes.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">trial</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/pr_example_trial.html">pr_example_trial</a></span><span class="op">(</span><span class="st">"pedar"</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">trial</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/pr_example_trial.html">pr_example_trial</a></span><span class="op">(</span><span class="st">"insole"</span><span class="op">)</span></span>
 <span><span class="va">trial</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">pr_trial</span> <span style="color: #00BBBB;">────────────────────────────────────────────────────────────────────</span></span></span>
-<span><span class="co">#&gt; • System: <span style="color: #0000BB;">"pedar"</span></span></span>
-<span><span class="co">#&gt; • Layout: <span style="color: #0000BB;">"pedar_standard"</span></span></span>
+<span><span class="co">#&gt; • System: <span style="color: #0000BB;">"insole"</span></span></span>
+<span><span class="co">#&gt; • Layout: <span style="color: #0000BB;">"insole_standard"</span></span></span>
 <span><span class="co">#&gt; • Frames: <span style="color: #0000BB;">250</span></span></span>
 <span><span class="co">#&gt; • Duration: <span style="color: #0000BB;">5</span> s</span></span>
 <span><span class="co">#&gt; • Sampling: <span style="color: #0000BB;">50</span> Hz</span></span>
@@ -131,7 +126,7 @@ vignettes.</p>
 <p>The default plot method draws a maximum-pressure picture (MPP):</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/pr_plot_heatmap.html">pr_plot_heatmap</a></span><span class="op">(</span><span class="va">trial</span><span class="op">)</span></span></code></pre></div>
-<p><img src="getting-started_files/figure-html/unnamed-chunk-4-1.png" class="r-plt" alt="MPP heatmap of the synthetic pedar trial" width="576"></p>
+<p><img src="getting-started_files/figure-html/unnamed-chunk-4-1.png" class="r-plt" alt="MPP heatmap of the synthetic insole trial" width="576"></p>
 <p>Time-domain curves are equally straightforward:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/pr_plot_force_time.html">pr_plot_force_time</a></span><span class="op">(</span><span class="va">trial</span>, show_cycles <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
@@ -155,7 +150,7 @@ common biomechanical parameters:</p>
 <div class="section level2">
 <h2 id="regional-analysis">Regional analysis<a class="anchor" aria-label="anchor" href="#regional-analysis"></a>
 </h2>
-<p>With the pedar layout’s default region masks you get one row per
+<p>With the insole layout’s default region masks you get one row per
 anatomical region:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/pr_calc_regional.html">pr_calc_regional</a></span><span class="op">(</span><span class="va">trial</span><span class="op">)</span></span>

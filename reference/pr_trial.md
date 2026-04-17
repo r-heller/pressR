@@ -43,12 +43,12 @@ A `pr_trial` S3 object.
 ## Examples
 
 ``` r
-trial <- pr_example_trial("pedar")
+trial <- pr_example_trial("insole")
 print(trial)
 #> 
 #> ── pr_trial ────────────────────────────────────────────────────────────────────
-#> • System: "pedar"
-#> • Layout: "pedar_standard"
+#> • System: "insole"
+#> • Layout: "insole_standard"
 #> • Frames: 250
 #> • Duration: 5 s
 #> • Sampling: 50 Hz

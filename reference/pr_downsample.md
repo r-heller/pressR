@@ -27,7 +27,7 @@ object with reduced frame count.
 ## Examples
 
 ``` r
-tr <- pr_downsample(pr_example_trial("pedar"), factor = 2)
+tr <- pr_downsample(pr_example_trial("insole"), factor = 2)
 tr$n_frames
 #> [1] 125
 ```

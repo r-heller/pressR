@@ -7,33 +7,29 @@ library(pressR)
 ## What pressR does
 
 **pressR** parses, analyzes, and visualizes pressure distribution data
-from capacitive sensor systems such as novel emed®, pedar®, and
-pliance®. It provides:
+from capacitive sensor systems. It provides:
 
-- Predefined sensor layouts (in-shoe, platform, saddle, seating, glove),
-- Parsers for the novel ASCII export format and generic CSV,
+- Predefined sensor layouts (in-shoe insoles, pressure platforms, saddle
+  mats, seating mats, glove sensors),
+- Parsers for ASCII and CSV pressure data files,
 - A full analysis pipeline (per-frame metrics, trial summaries, regional
   analysis, gait-cycle detection, saddle-fit checks),
 - `ggplot2`-based visualization and composite reports,
 - An interactive Shiny application for data exploration.
 
-> **Disclaimer.** pressR is not affiliated with novel GmbH. Product
-> names (emed, pedar, pliance, loadsol) are used for identification
-> only.
-
 ## Load a layout
 
 Every trial is tied to a `pr_layout` object that describes the sensor
-geometry. For example, the pedar in-shoe insole:
+geometry. For example, a 99-sensor in-shoe pressure insole:
 
 ``` r
-layout <- pr_layout_pedar()
+layout <- pr_layout_insole()
 print(layout)
 #> 
-#> ── pr_layout: pedar_standard ───────────────────────────────────────────────────
-#> pedar in-shoe pressure insole (99 sensors, standard).
-#> • Manufacturer: "novel GmbH"
-#> • Model: "pedar"
+#> ── pr_layout: insole_standard ──────────────────────────────────────────────────
+#> In-shoe pressure insole (99 sensors, standard).
+#> • Manufacturer: ""
+#> • Model: "insole"
 #> • Grid: 18 x 8
 #> • Active sensors: 99
 #> • Sensor area: 1.5 cm²
@@ -50,12 +46,12 @@ produces realistic synthetic data for each supported application. This
 is useful for quick demos, tests, and vignettes.
 
 ``` r
-trial <- pr_example_trial("pedar")
+trial <- pr_example_trial("insole")
 trial
 #> 
 #> ── pr_trial ────────────────────────────────────────────────────────────────────
-#> • System: "pedar"
-#> • Layout: "pedar_standard"
+#> • System: "insole"
+#> • Layout: "insole_standard"
 #> • Frames: 250
 #> • Duration: 5 s
 #> • Sampling: 50 Hz
@@ -73,7 +69,7 @@ The default plot method draws a maximum-pressure picture (MPP):
 pr_plot_heatmap(trial)
 ```
 
-![MPP heatmap of the synthetic pedar
+![MPP heatmap of the synthetic insole
 trial](getting-started_files/figure-html/unnamed-chunk-4-1.png)
 
 Time-domain curves are equally straightforward:
@@ -104,7 +100,7 @@ pr_summary(trial)
 
 ## Regional analysis
 
-With the pedar layout’s default region masks you get one row per
+With the insole layout’s default region masks you get one row per
 anatomical region:
 
 ``` r

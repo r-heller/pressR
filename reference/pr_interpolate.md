@@ -28,7 +28,7 @@ A list with `pressure_interp` (interpolated matrix), `x_mm`, `y_mm`.
 ## Examples
 
 ``` r
-out <- pr_interpolate(pr_example_trial("pedar"), factor = 2)
+out <- pr_interpolate(pr_example_trial("insole"), factor = 2)
 dim(out$pressure_interp)
 #> [1] 35 15
 ```

@@ -4,10 +4,10 @@
 library(pressR)
 ```
 
-Saddle-pressure mapping using the pliance Mobile-16HE sensor mat has
-been used extensively in the equine back-health literature (Werner et
-al. 2002; Moenkemoeller et al. 2005; von Peinen et al. 2010). This
-vignette walks through a typical analysis.
+Saddle-pressure mapping using capacitive sensor mats has been used
+extensively in the equine back-health literature (Werner et al. 2002;
+Moenkemoeller et al. 2005; von Peinen et al. 2010). This vignette walks
+through a typical analysis.
 
 ## Load the saddle layout
 
@@ -25,7 +25,7 @@ trial <- pr_example_trial("saddle_horse")
 trial
 #> 
 #> ── pr_trial ────────────────────────────────────────────────────────────────────
-#> • System: "pliance"
+#> • System: "saddle_mat"
 #> • Layout: "saddle_horse"
 #> • Frames: 500
 #> • Duration: 10 s

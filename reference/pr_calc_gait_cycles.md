@@ -20,7 +20,7 @@ pr_calc_gait_cycles(
 - trial:
 
   A [pr_trial](https://r-heller.github.io/pressR/reference/pr_trial.md)
-  object from a pedar or emed recording.
+  object from an insole or platform recording.
 
 - force_threshold:
 
@@ -43,7 +43,7 @@ with one row per detected cycle.
 ## Examples
 
 ``` r
-cycles <- pr_calc_gait_cycles(pr_example_trial("pedar"))
+cycles <- pr_calc_gait_cycles(pr_example_trial("insole"))
 cycles
 #> # A tibble: 5 × 8
 #>   cycle heel_strike_frame toe_off_frame heel_strike_time toe_off_time

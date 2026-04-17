@@ -1,7 +1,7 @@
 # Saddle Fit Reference Thresholds
 
 Returns published threshold values for equine saddle pressure assessment
-based on peer-reviewed studies using the pliance system.
+based on peer-reviewed studies.
 
 ## Usage
 

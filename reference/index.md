@@ -5,13 +5,13 @@
 Read pressure data from various file formats
 
 - [`pr_read_ascii()`](https://r-heller.github.io/pressR/reference/pr_read_ascii.md)
-  : Read novel ASCII Pressure Data Export
+  : Read ASCII Pressure Data Export
 - [`pr_read_csv()`](https://r-heller.github.io/pressR/reference/pr_read_csv.md)
   : Read Pressure Data from CSV
-- [`pr_read_loadsol()`](https://r-heller.github.io/pressR/reference/pr_read_loadsol.md)
-  : Read loadsol Force Data
+- [`pr_read_forcesensor()`](https://r-heller.github.io/pressR/reference/pr_read_forcesensor.md)
+  : Read Force Sensor Data
 - [`pr_read_mask()`](https://r-heller.github.io/pressR/reference/pr_read_mask.md)
-  : Read novel Mask File
+  : Read Mask File
 - [`pr_read_auto()`](https://r-heller.github.io/pressR/reference/pr_read_auto.md)
   : Auto-Detect and Read a Pressure Data File
 
@@ -21,18 +21,18 @@ Predefined and custom sensor coordinate layouts
 
 - [`pr_layout()`](https://r-heller.github.io/pressR/reference/pr_layout.md)
   : Create a Pressure Sensor Layout
-- [`pr_layout_pedar()`](https://r-heller.github.io/pressR/reference/pr_layout_pedar.md)
-  : Get pedar In-Shoe Pressure Insole Layout
-- [`pr_layout_emed()`](https://r-heller.github.io/pressR/reference/pr_layout_emed.md)
-  : Get emed Pressure Platform Layout
-- [`pr_layout_pliance()`](https://r-heller.github.io/pressR/reference/pr_layout_pliance.md)
-  : Get pliance Sensor Mat Layout
+- [`pr_layout_insole()`](https://r-heller.github.io/pressR/reference/pr_layout_insole.md)
+  : Get In-Shoe Pressure Insole Layout
+- [`pr_layout_platform()`](https://r-heller.github.io/pressR/reference/pr_layout_platform.md)
+  : Get Pressure Platform Layout
+- [`pr_layout_mat()`](https://r-heller.github.io/pressR/reference/pr_layout_mat.md)
+  : Get Generic Sensor Mat Layout
 - [`pr_layout_saddle()`](https://r-heller.github.io/pressR/reference/pr_layout_saddle.md)
   : Get Saddle Pressure Mat Layout
 - [`pr_layout_seat()`](https://r-heller.github.io/pressR/reference/pr_layout_seat.md)
   : Get Seating Pressure Mat Layout
 - [`pr_layout_glove()`](https://r-heller.github.io/pressR/reference/pr_layout_glove.md)
-  : Get Pliance Glove Sensor Layout
+  : Get Glove Sensor Layout
 - [`pr_layout_list()`](https://r-heller.github.io/pressR/reference/pr_layout_list.md)
   : List All Built-In Sensor Layouts
 - [`pr_validate_layout()`](https://r-heller.github.io/pressR/reference/pr_validate_layout.md)

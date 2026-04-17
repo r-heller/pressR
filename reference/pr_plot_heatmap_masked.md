@@ -45,7 +45,7 @@ pr_plot_heatmap_masked(
 - palette:
 
   Character. One of `"viridis"` (default), `"inferno"`, `"plasma"`,
-  `"magma"`, `"jet"`, `"novel"`.
+  `"magma"`, `"jet"`, `"classic"`.
 
 - range:
 

@@ -31,7 +31,7 @@ containing only frames with `time` in `[from, to]`.
 ## Examples
 
 ``` r
-tr <- pr_filter_time(pr_example_trial("pedar"), from = 1, to = 3)
+tr <- pr_filter_time(pr_example_trial("insole"), from = 1, to = 3)
 tr$duration
 #> [1] 1.987952
 ```

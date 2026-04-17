@@ -58,7 +58,7 @@ individual stance phases.</p>
 
 
 <dl><dt id="arg-trial">trial<a class="anchor" aria-label="anchor" href="#arg-trial"></a></dt>
-<dd><p>A <a href="pr_trial.html">pr_trial</a> object from a pedar or emed recording.</p></dd>
+<dd><p>A <a href="pr_trial.html">pr_trial</a> object from an insole or platform recording.</p></dd>
 
 
 <dt id="arg-force-threshold">force_threshold<a class="anchor" aria-label="anchor" href="#arg-force-threshold"></a></dt>
@@ -82,7 +82,7 @@ contacts are rejected. Default <code>200</code>.</p></dd>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">cycles</span> <span class="op">&lt;-</span> <span class="fu">pr_calc_gait_cycles</span><span class="op">(</span><span class="fu"><a href="pr_example_trial.html">pr_example_trial</a></span><span class="op">(</span><span class="st">"pedar"</span><span class="op">)</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">cycles</span> <span class="op">&lt;-</span> <span class="fu">pr_calc_gait_cycles</span><span class="op">(</span><span class="fu"><a href="pr_example_trial.html">pr_example_trial</a></span><span class="op">(</span><span class="st">"insole"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">cycles</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 5 × 8</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   cycle heel_strike_frame toe_off_frame heel_strike_time toe_off_time</span>

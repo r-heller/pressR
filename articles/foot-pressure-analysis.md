@@ -6,15 +6,15 @@ library(pressR)
 
 Plantar-pressure measurement is used in pedography, gait analysis, and
 diabetic-foot risk assessment. This vignette demonstrates the workflow
-on a synthetic pedar trial.
+using a synthetic in-shoe insole trial.
 
 ``` r
-trial <- pr_example_trial("pedar")
+trial <- pr_example_trial("insole")
 trial
 #> 
 #> ── pr_trial ────────────────────────────────────────────────────────────────────
-#> • System: "pedar"
-#> • Layout: "pedar_standard"
+#> • System: "insole"
+#> • Layout: "insole_standard"
 #> • Frames: 250
 #> • Duration: 5 s
 #> • Sampling: 50 Hz

@@ -26,5 +26,5 @@ A `ggplot2` object.
 ## Examples
 
 ``` r
-pr_plot_pressure_time(pr_example_trial("pedar"))
+pr_plot_pressure_time(pr_example_trial("insole"))
 ```

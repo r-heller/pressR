@@ -41,11 +41,11 @@
 <url><loc>https://r-heller.github.io/pressR/reference/pr_filter_time.html</loc></url>
 <url><loc>https://r-heller.github.io/pressR/reference/pr_interpolate.html</loc></url>
 <url><loc>https://r-heller.github.io/pressR/reference/pr_layout.html</loc></url>
-<url><loc>https://r-heller.github.io/pressR/reference/pr_layout_emed.html</loc></url>
 <url><loc>https://r-heller.github.io/pressR/reference/pr_layout_glove.html</loc></url>
+<url><loc>https://r-heller.github.io/pressR/reference/pr_layout_insole.html</loc></url>
 <url><loc>https://r-heller.github.io/pressR/reference/pr_layout_list.html</loc></url>
-<url><loc>https://r-heller.github.io/pressR/reference/pr_layout_pedar.html</loc></url>
-<url><loc>https://r-heller.github.io/pressR/reference/pr_layout_pliance.html</loc></url>
+<url><loc>https://r-heller.github.io/pressR/reference/pr_layout_mat.html</loc></url>
+<url><loc>https://r-heller.github.io/pressR/reference/pr_layout_platform.html</loc></url>
 <url><loc>https://r-heller.github.io/pressR/reference/pr_layout_saddle.html</loc></url>
 <url><loc>https://r-heller.github.io/pressR/reference/pr_layout_seat.html</loc></url>
 <url><loc>https://r-heller.github.io/pressR/reference/pr_mask.html</loc></url>
@@ -71,7 +71,7 @@
 <url><loc>https://r-heller.github.io/pressR/reference/pr_read_ascii.html</loc></url>
 <url><loc>https://r-heller.github.io/pressR/reference/pr_read_auto.html</loc></url>
 <url><loc>https://r-heller.github.io/pressR/reference/pr_read_csv.html</loc></url>
-<url><loc>https://r-heller.github.io/pressR/reference/pr_read_loadsol.html</loc></url>
+<url><loc>https://r-heller.github.io/pressR/reference/pr_read_forcesensor.html</loc></url>
 <url><loc>https://r-heller.github.io/pressR/reference/pr_read_mask.html</loc></url>
 <url><loc>https://r-heller.github.io/pressR/reference/pr_ref_diabetic_foot.html</loc></url>
 <url><loc>https://r-heller.github.io/pressR/reference/pr_ref_saddle.html</loc></url>

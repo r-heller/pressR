@@ -1,9 +1,9 @@
 # Auto-Segment Foot Regions from Pressure Data
 
-For platform recordings (typically from emed) where foot regions must be
-detected from the raw pressure matrix. Uses the maximum pressure picture
-(MPP) to identify the foot outline, then segments into anatomical
-regions based on proportional geometry.
+For platform recordings where foot regions must be detected from the raw
+pressure matrix. Uses the maximum pressure picture (MPP) to identify the
+foot outline, then segments into anatomical regions based on
+proportional geometry.
 
 ## Usage
 
@@ -16,7 +16,7 @@ pr_mask_foot_auto(trial, n_regions = 7L, threshold = 1)
 - trial:
 
   A [pr_trial](https://r-heller.github.io/pressR/reference/pr_trial.md)
-  object from a platform (emed) recording.
+  object from a pressure platform recording.
 
 - n_regions:
 

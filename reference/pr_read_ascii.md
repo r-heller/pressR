@@ -1,8 +1,8 @@
-# Read novel ASCII Pressure Data Export
+# Read ASCII Pressure Data Export
 
-Parses ASCII data files exported from novel emed, pedar, or pliance
-software. Automatically detects header format and extracts metadata, the
-pressure matrix, and timing.
+Parses ASCII data files containing pressure sensor data. Automatically
+detects header format and extracts metadata, the pressure matrix, and
+timing.
 
 ## Usage
 
@@ -55,7 +55,7 @@ object.
 ## Examples
 
 ``` r
-path <- pr_example_files("pedar")
+path <- pr_example_files("insole")
 trial <- pr_read_ascii(path, verbose = FALSE)
 trial$n_frames
 #> [1] 250

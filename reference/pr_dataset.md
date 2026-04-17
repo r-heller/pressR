@@ -34,8 +34,8 @@ A `pr_dataset` S3 object.
 ## Examples
 
 ``` r
-t1 <- pr_example_trial("pedar", seed = 1)
-t2 <- pr_example_trial("pedar", seed = 2)
+t1 <- pr_example_trial("insole", seed = 1)
+t2 <- pr_example_trial("insole", seed = 2)
 ds <- pr_dataset(list(t1, t2))
 print(ds)
 #> 
@@ -43,5 +43,5 @@ print(ds)
 #> • Trials: 2
 #> • Subjects: "EX01"
 #> • Conditions: "walking"
-#> • Layouts: "pedar_standard"
+#> • Layouts: "insole_standard"
 ```

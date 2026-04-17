@@ -58,7 +58,7 @@ with columns:
 ## Examples
 
 ``` r
-trial <- pr_example_trial("pedar")
+trial <- pr_example_trial("insole")
 pr_summary(trial)
 #> # A tibble: 1 × 14
 #>     mpp   mvp max_force mean_force max_contact_area mean_contact_area

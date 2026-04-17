@@ -43,7 +43,8 @@ demonstration, testing, and vignette purposes.</p>
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">pr_example_trial</span><span class="op">(</span></span>
-<span>  type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"pedar"</span>, <span class="st">"emed"</span>, <span class="st">"saddle_horse"</span>, <span class="st">"saddle_bicycle"</span>, <span class="st">"wheelchair"</span>, <span class="st">"custom"</span><span class="op">)</span>,</span>
+<span>  type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"insole"</span>, <span class="st">"platform"</span>, <span class="st">"saddle_horse"</span>, <span class="st">"saddle_bicycle"</span>, <span class="st">"wheelchair"</span>,</span>
+<span>    <span class="st">"custom"</span><span class="op">)</span>,</span>
 <span>  duration_s <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  sampling_hz <span class="op">=</span> <span class="fl">50</span>,</span>
 <span>  seed <span class="op">=</span> <span class="fl">42</span></span>
@@ -56,7 +57,7 @@ demonstration, testing, and vignette purposes.</p>
 
 <dl><dt id="arg-type">type<a class="anchor" aria-label="anchor" href="#arg-type"></a></dt>
 <dd><p>Character. Type of trial to generate:
-<code>"pedar"</code>, <code>"emed"</code>, <code>"saddle_horse"</code>, <code>"saddle_bicycle"</code>,
+<code>"insole"</code>, <code>"platform"</code>, <code>"saddle_horse"</code>, <code>"saddle_bicycle"</code>,
 <code>"wheelchair"</code>, or <code>"custom"</code> (small uniform grid).</p></dd>
 
 
@@ -80,12 +81,12 @@ uses a type-specific default.</p></dd>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">trial</span> <span class="op">&lt;-</span> <span class="fu">pr_example_trial</span><span class="op">(</span><span class="st">"pedar"</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">trial</span> <span class="op">&lt;-</span> <span class="fu">pr_example_trial</span><span class="op">(</span><span class="st">"insole"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">trial</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">pr_trial</span> <span style="color: #00BBBB;">────────────────────────────────────────────────────────────────────</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> • System: <span style="color: #0000BB;">"pedar"</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> • Layout: <span style="color: #0000BB;">"pedar_standard"</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> • System: <span style="color: #0000BB;">"insole"</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> • Layout: <span style="color: #0000BB;">"insole_standard"</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> • Frames: <span style="color: #0000BB;">250</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> • Duration: <span style="color: #0000BB;">5</span> s</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> • Sampling: <span style="color: #0000BB;">50</span> Hz</span>

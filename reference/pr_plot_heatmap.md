@@ -43,7 +43,7 @@ pr_plot_heatmap(
 - palette:
 
   Character. One of `"viridis"` (default), `"inferno"`, `"plasma"`,
-  `"magma"`, `"jet"`, `"novel"`.
+  `"magma"`, `"jet"`, `"classic"`.
 
 - range:
 
@@ -65,6 +65,6 @@ A `ggplot2` object.
 ## Examples
 
 ``` r
-trial <- pr_example_trial("pedar")
+trial <- pr_example_trial("insole")
 pr_plot_heatmap(trial)
 ```

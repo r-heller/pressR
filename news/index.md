@@ -7,13 +7,13 @@
 #### Parsers
 
 - [`pr_read_ascii()`](https://r-heller.github.io/pressR/reference/pr_read_ascii.md):
-  Parse novel ASCII pressure data exports.
+  Parse ASCII pressure data exports.
 - [`pr_read_csv()`](https://r-heller.github.io/pressR/reference/pr_read_csv.md):
   Parse generic CSV pressure data (wide or long).
-- [`pr_read_loadsol()`](https://r-heller.github.io/pressR/reference/pr_read_loadsol.md):
-  Parse loadsol force data.
+- [`pr_read_forcesensor()`](https://r-heller.github.io/pressR/reference/pr_read_forcesensor.md):
+  Parse force sensor data.
 - [`pr_read_mask()`](https://r-heller.github.io/pressR/reference/pr_read_mask.md):
-  Parse novel mask files.
+  Parse region mask files.
 - [`pr_read_auto()`](https://r-heller.github.io/pressR/reference/pr_read_auto.md):
   Auto-detect and dispatch.
 
@@ -21,9 +21,9 @@
 
 - [`pr_layout()`](https://r-heller.github.io/pressR/reference/pr_layout.md):
   Construct custom layouts.
-- [`pr_layout_pedar()`](https://r-heller.github.io/pressR/reference/pr_layout_pedar.md),
-  [`pr_layout_emed()`](https://r-heller.github.io/pressR/reference/pr_layout_emed.md),
-  [`pr_layout_pliance()`](https://r-heller.github.io/pressR/reference/pr_layout_pliance.md),
+- [`pr_layout_insole()`](https://r-heller.github.io/pressR/reference/pr_layout_insole.md),
+  [`pr_layout_platform()`](https://r-heller.github.io/pressR/reference/pr_layout_platform.md),
+  [`pr_layout_mat()`](https://r-heller.github.io/pressR/reference/pr_layout_mat.md),
   [`pr_layout_saddle()`](https://r-heller.github.io/pressR/reference/pr_layout_saddle.md),
   [`pr_layout_seat()`](https://r-heller.github.io/pressR/reference/pr_layout_seat.md),
   [`pr_layout_glove()`](https://r-heller.github.io/pressR/reference/pr_layout_glove.md):

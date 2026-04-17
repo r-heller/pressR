@@ -35,7 +35,7 @@ object (for `.asc` / `.txt` / `.csv`), or a logical mask matrix /
 ## Examples
 
 ``` r
-path <- pr_example_files("pedar")
+path <- pr_example_files("insole")
 tr <- pr_read_auto(path, verbose = FALSE)
 inherits(tr, "pr_trial")
 #> [1] TRUE

@@ -26,5 +26,5 @@ error.
 ## Examples
 
 ``` r
-pr_validate_layout(pr_layout_pedar())
+pr_validate_layout(pr_layout_insole())
 ```

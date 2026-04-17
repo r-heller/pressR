@@ -9,7 +9,8 @@ vignette purposes.
 
 ``` r
 pr_example_trial(
-  type = c("pedar", "emed", "saddle_horse", "saddle_bicycle", "wheelchair", "custom"),
+  type = c("insole", "platform", "saddle_horse", "saddle_bicycle", "wheelchair",
+    "custom"),
   duration_s = NULL,
   sampling_hz = 50,
   seed = 42
@@ -20,7 +21,7 @@ pr_example_trial(
 
 - type:
 
-  Character. Type of trial to generate: `"pedar"`, `"emed"`,
+  Character. Type of trial to generate: `"insole"`, `"platform"`,
   `"saddle_horse"`, `"saddle_bicycle"`, `"wheelchair"`, or `"custom"`
   (small uniform grid).
 
@@ -45,12 +46,12 @@ object.
 ## Examples
 
 ``` r
-trial <- pr_example_trial("pedar")
+trial <- pr_example_trial("insole")
 print(trial)
 #> 
 #> ── pr_trial ────────────────────────────────────────────────────────────────────
-#> • System: "pedar"
-#> • Layout: "pedar_standard"
+#> • System: "insole"
+#> • Layout: "insole_standard"
 #> • Frames: 250
 #> • Duration: 5 s
 #> • Sampling: 50 Hz

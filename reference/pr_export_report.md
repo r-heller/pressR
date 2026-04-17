@@ -52,6 +52,6 @@ Invisibly returns the generated file path.
 ``` r
 if (FALSE) { # \dontrun{
 tmp <- tempfile(fileext = ".html")
-pr_export_report(pr_example_trial("pedar"), tmp, template = "foot")
+pr_export_report(pr_example_trial("insole"), tmp, template = "foot")
 } # }
 ```

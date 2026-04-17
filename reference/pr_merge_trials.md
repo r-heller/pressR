@@ -29,13 +29,13 @@ object.
 
 ``` r
 pr_merge_trials(
-  pr_example_trial("pedar", seed = 1),
-  pr_example_trial("pedar", seed = 2)
+  pr_example_trial("insole", seed = 1),
+  pr_example_trial("insole", seed = 2)
 )
 #> 
 #> ── pr_dataset: dataset ─────────────────────────────────────────────────────────
 #> • Trials: 2
 #> • Subjects: "EX01"
 #> • Conditions: "walking"
-#> • Layouts: "pedar_standard"
+#> • Layouts: "insole_standard"
 ```

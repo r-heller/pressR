@@ -64,7 +64,7 @@ pr_layout(
 - name:
 
   Character. Short identifier for this layout (e.g.,
-  `"pedar_standard"`).
+  `"insole_standard"`).
 
 - description:
 

@@ -27,7 +27,7 @@ Numeric vector of length `n_frames`.
 ## Examples
 
 ``` r
-trial <- pr_example_trial("pedar")
+trial <- pr_example_trial("insole")
 pp <- pr_calc_peak_pressure(trial)
 length(pp) == trial$n_frames
 #> [1] TRUE

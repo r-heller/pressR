@@ -1,8 +1,10 @@
 # pressR
 
-**pressR** parses, analyses, and visualises pressure distribution data
-from capacitive sensor systems. It ships with predefined layouts, along
-with an interactive Shiny application for data exploration.
+**pressR** parses, analyzes, and visualizes pressure distribution data
+from capacitive sensor systems. It ships with predefined layouts for
+in-shoe pressure measurement, saddle pressure mapping (equine and
+bicycle), seating assessment, and barefoot pedography, along with an
+interactive Shiny application for data exploration.
 
 ## Installation
 
@@ -16,7 +18,7 @@ pak::pak("r-heller/pressR")
 ``` r
 library(pressR)
 
-trial <- pr_example_trial("pedar")
+trial <- pr_example_trial("insole")
 
 pr_plot_heatmap(trial)
 pr_plot_force_time(trial, show_cycles = TRUE)
@@ -27,12 +29,20 @@ pr_calc_regional(trial)
 
 ## Features
 
-- **Parsers** for novel ASCII exports, generic CSV, loadsol data, and
-  novel mask files (`.msa`/`.msr`/`.msp`).
+- **Parsers** for ASCII pressure data exports, generic CSV, force sensor
+  data, and region mask files (`.msa`/`.msr`/`.msp`).
+- **Predefined layouts** for in-shoe insoles (99-sensor), barefoot
+  pressure platforms, generic sensor mats (16x16 / 32x32), horse and
+  bicycle saddles, wheelchair / car / office seating, and glove sensors.
 - **Per-frame and per-trial analysis**: peak pressure, mean pressure,
-  force, contact area, pressure-time integral, centre of pressure,
+  force, contact area, pressure-time integral, center of pressure,
   symmetry index, gait cycle detection, and COP rollover pattern.
-- **Visualisation**: 2D and 3D heatmaps, dynamics plots, regional bar
+- **Application-specific analysis**: saddle bridge and slip detection,
+  wheelchair hotspot identification, plantar-pressure regional analysis.
+- **Published reference thresholds** for saddle fit (von Peinen 2010,
+  Moenkemoeller 2005, Werner 2002), diabetic foot risk, and wheelchair
+  seating.
+- **Visualization**: 2D and 3D heatmaps, dynamics plots, regional bar
   charts, composite report panels, and side-by-side trial comparison.
 - **Shiny app**
   ([`pr_run_app()`](https://r-heller.github.io/pressR/reference/pr_run_app.md))
@@ -46,7 +56,7 @@ pr_calc_regional(trial)
 
 ## License
 
-MIT © Raban Heller.
+MIT
 
 # Package index
 
@@ -55,13 +65,13 @@ MIT © Raban Heller.
 Read pressure data from various file formats
 
 - [`pr_read_ascii()`](https://r-heller.github.io/pressR/reference/pr_read_ascii.md)
-  : Read novel ASCII Pressure Data Export
+  : Read ASCII Pressure Data Export
 - [`pr_read_csv()`](https://r-heller.github.io/pressR/reference/pr_read_csv.md)
   : Read Pressure Data from CSV
-- [`pr_read_loadsol()`](https://r-heller.github.io/pressR/reference/pr_read_loadsol.md)
-  : Read loadsol Force Data
+- [`pr_read_forcesensor()`](https://r-heller.github.io/pressR/reference/pr_read_forcesensor.md)
+  : Read Force Sensor Data
 - [`pr_read_mask()`](https://r-heller.github.io/pressR/reference/pr_read_mask.md)
-  : Read novel Mask File
+  : Read Mask File
 - [`pr_read_auto()`](https://r-heller.github.io/pressR/reference/pr_read_auto.md)
   : Auto-Detect and Read a Pressure Data File
 
@@ -71,18 +81,18 @@ Predefined and custom sensor coordinate layouts
 
 - [`pr_layout()`](https://r-heller.github.io/pressR/reference/pr_layout.md)
   : Create a Pressure Sensor Layout
-- [`pr_layout_pedar()`](https://r-heller.github.io/pressR/reference/pr_layout_pedar.md)
-  : Get pedar In-Shoe Pressure Insole Layout
-- [`pr_layout_emed()`](https://r-heller.github.io/pressR/reference/pr_layout_emed.md)
-  : Get emed Pressure Platform Layout
-- [`pr_layout_pliance()`](https://r-heller.github.io/pressR/reference/pr_layout_pliance.md)
-  : Get pliance Sensor Mat Layout
+- [`pr_layout_insole()`](https://r-heller.github.io/pressR/reference/pr_layout_insole.md)
+  : Get In-Shoe Pressure Insole Layout
+- [`pr_layout_platform()`](https://r-heller.github.io/pressR/reference/pr_layout_platform.md)
+  : Get Pressure Platform Layout
+- [`pr_layout_mat()`](https://r-heller.github.io/pressR/reference/pr_layout_mat.md)
+  : Get Generic Sensor Mat Layout
 - [`pr_layout_saddle()`](https://r-heller.github.io/pressR/reference/pr_layout_saddle.md)
   : Get Saddle Pressure Mat Layout
 - [`pr_layout_seat()`](https://r-heller.github.io/pressR/reference/pr_layout_seat.md)
   : Get Seating Pressure Mat Layout
 - [`pr_layout_glove()`](https://r-heller.github.io/pressR/reference/pr_layout_glove.md)
-  : Get Pliance Glove Sensor Layout
+  : Get Glove Sensor Layout
 - [`pr_layout_list()`](https://r-heller.github.io/pressR/reference/pr_layout_list.md)
   : List All Built-In Sensor Layouts
 - [`pr_validate_layout()`](https://r-heller.github.io/pressR/reference/pr_validate_layout.md)
