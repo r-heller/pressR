@@ -1,0 +1,83 @@
+---
+title: "Equine Saddle Pressure Analysis with pressR"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Equine Saddle Pressure Analysis with pressR}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE, comment = "#>",
+  fig.width = 7, fig.height = 5, dpi = 96
+)
+```
+
+```{r setup, message=FALSE}
+library(pressR)
+```
+
+Saddle-pressure mapping using the pliance Mobile-16HE sensor mat has
+been used extensively in the equine back-health literature (Werner et
+al. 2002; Moenkemoeller et al. 2005; von Peinen et al. 2010). This
+vignette walks through a typical analysis.
+
+## Load the saddle layout
+
+```{r}
+layout <- pr_layout_saddle("horse")
+names(layout$regions)
+```
+
+## Load a synthetic trial
+
+```{r}
+trial <- pr_example_trial("saddle_horse")
+trial
+```
+
+## Inspect the pressure map
+
+```{r, fig.alt="Saddle pressure heatmap with 6-region mask"}
+pr_plot_heatmap_masked(trial)
+```
+
+## Regional analysis with reference thresholds
+
+```{r}
+masks <- pr_mask_saddle_6(layout)
+reg <- pr_calc_regional(trial, masks)
+reg
+```
+
+```{r, fig.alt="Regional mean-pressure bar chart"}
+pr_plot_regional_bar(reg, "mvp", thresholds = pr_ref_saddle())
+```
+
+## Bridge detection
+
+```{r}
+bridge <- pr_calc_saddle_bridge(trial)
+bridge
+```
+
+## Slip / asymmetric loading
+
+```{r}
+slip <- pr_calc_saddle_slip(trial)
+slip$symmetry_index_mean
+slip$dominant_side
+```
+
+## Composite report
+
+```{r, fig.alt="Saddle-fit composite report", fig.width=9, fig.height=7}
+pr_plot_saddle_report(trial)
+```
+
+## References
+
+* Werner D, et al. (2002). *J Vet Med A Physiol Pathol Clin Med* 49(9): 460-465.
+* Moenkemoeller S, et al. (2005). *Pferdeheilkunde* 21(2): 102-108.
+* von Peinen K, et al. (2010). *Equine Vet J Suppl* 42: 650-653.

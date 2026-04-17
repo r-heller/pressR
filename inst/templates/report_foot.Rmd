@@ -1,0 +1,48 @@
+---
+title: "pressR foot pressure report"
+output: html_document
+params:
+  trial: NULL
+  masks: NULL
+  thresholds: NULL
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE,
+                      fig.width = 7, fig.height = 5)
+library(pressR)
+```
+
+```{r}
+trial <- params$trial
+```
+
+## Trial
+
+```{r}
+print(trial)
+```
+
+## Summary
+
+```{r}
+pr_summary(trial)
+```
+
+## Composite report
+
+```{r, fig.width=9, fig.height=7}
+pr_plot_foot_report(trial)
+```
+
+## Regional analysis
+
+```{r}
+pr_calc_regional(trial)
+```
+
+## Gait cycles
+
+```{r}
+pr_calc_gait_cycles(trial)
+```

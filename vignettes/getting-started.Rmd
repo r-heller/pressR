@@ -1,0 +1,107 @@
+---
+title: "Getting Started with pressR"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Getting Started with pressR}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.width = 6,
+  fig.height = 4,
+  dpi = 96
+)
+```
+
+```{r setup, message=FALSE}
+library(pressR)
+```
+
+## What pressR does
+
+**pressR** parses, analyzes, and visualizes pressure distribution data
+from capacitive sensor systems such as novel emed®, pedar®, and
+pliance®. It provides:
+
+* Predefined sensor layouts (in-shoe, platform, saddle, seating, glove),
+* Parsers for the novel ASCII export format and generic CSV,
+* A full analysis pipeline (per-frame metrics, trial summaries,
+  regional analysis, gait-cycle detection, saddle-fit checks),
+* `ggplot2`-based visualization and composite reports,
+* An interactive Shiny application for data exploration.
+
+> **Disclaimer.** pressR is not affiliated with novel GmbH. Product
+> names (emed, pedar, pliance, loadsol) are used for identification
+> only.
+
+## Load a layout
+
+Every trial is tied to a `pr_layout` object that describes the sensor
+geometry. For example, the pedar in-shoe insole:
+
+```{r}
+layout <- pr_layout_pedar()
+print(layout)
+```
+
+## Generate a synthetic example trial
+
+`pr_example_trial()` produces realistic synthetic data for each
+supported application. This is useful for quick demos, tests, and
+vignettes.
+
+```{r}
+trial <- pr_example_trial("pedar")
+trial
+```
+
+## Visualize
+
+The default plot method draws a maximum-pressure picture (MPP):
+
+```{r, fig.alt="MPP heatmap of the synthetic pedar trial"}
+pr_plot_heatmap(trial)
+```
+
+Time-domain curves are equally straightforward:
+
+```{r, fig.alt="Force vs time with gait cycles shaded"}
+pr_plot_force_time(trial, show_cycles = TRUE)
+```
+
+## Summarize
+
+`pr_summary()` returns a single-row tibble containing the common
+biomechanical parameters:
+
+```{r}
+pr_summary(trial)
+```
+
+## Regional analysis
+
+With the pedar layout's default region masks you get one row per
+anatomical region:
+
+```{r}
+pr_calc_regional(trial)
+```
+
+## Export
+
+Results can be exported as CSV:
+
+```{r, eval=FALSE}
+tmp <- tempfile(fileext = ".csv")
+pr_export_csv(trial, tmp, what = "summary")
+```
+
+## Launch the Shiny app
+
+```{r, eval=FALSE}
+pr_run_app(trial)
+```

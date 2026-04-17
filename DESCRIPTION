@@ -1,0 +1,51 @@
+Package: pressR
+Title: Pressure Distribution Analysis for Capacitive Sensor Systems
+Version: 0.1.0
+Authors@R: person("Raban", "Heller", email = "raban.heller@charite.de",
+    role = c("aut", "cre"), comment = c(ORCID = "0000-0001-8006-9742"))
+Description: Parse, analyze, and visualize pressure distribution data from
+    capacitive sensor systems including novel emed, pedar, and pliance
+    platforms. Provides predefined sensor coordinate layouts for in-shoe
+    pressure measurement, saddle pressure mapping (equine and bicycle),
+    seating assessment, and barefoot pedography. Includes functions for
+    peak pressure, center of pressure, pressure-time integrals, regional
+    analysis with anatomical masks, symmetry indices, and gait cycle
+    detection. Ships with an interactive Shiny application for data
+    exploration and report generation.
+License: MIT + file LICENSE
+URL: https://github.com/r-heller/pressR, https://r-heller.github.io/pressR/
+BugReports: https://github.com/r-heller/pressR/issues
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
+Config/testthat/edition: 3
+Depends:
+    R (>= 4.1.0)
+Imports:
+    tibble,
+    dplyr,
+    tidyr,
+    readr,
+    rlang,
+    cli,
+    ggplot2,
+    plotly,
+    DT,
+    shiny,
+    bslib,
+    patchwork,
+    stats,
+    utils,
+    tools
+Suggests:
+    gganimate,
+    gifski,
+    withr,
+    testthat (>= 3.0.0),
+    knitr,
+    rmarkdown,
+    pkgdown,
+    covr,
+    shinytest2,
+    vdiffr
+VignetteBuilder: knitr
