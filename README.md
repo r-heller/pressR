@@ -9,16 +9,9 @@
 <!-- badges: end -->
 
 **pressR** parses, analyses, and visualises pressure distribution data
-from capacitive sensor systems — including novel® emed, pedar, and
-pliance platforms — plus any generic sensor matrix you define yourself.
-It ships with predefined layouts for in-shoe pressure measurement,
-saddle pressure mapping (equine and bicycle), seating assessment, and
-barefoot pedography, along with an interactive Shiny application for
+from capacitive sensor systems.
+It ships with predefined layouts, along with an interactive Shiny application for
 data exploration.
-
-> **Disclaimer.** `pressR` is not affiliated with novel GmbH.
-> Product names (emed, pedar, pliance, loadsol) are trademarks of
-> novel GmbH, used here for identification purposes only.
 
 ## Installation
 
@@ -45,17 +38,9 @@ pr_calc_regional(trial)
 
 * **Parsers** for novel ASCII exports, generic CSV, loadsol data,
   and novel mask files (`.msa`/`.msr`/`.msp`).
-* **Predefined layouts** for pedar, emed, pliance mats (16x16 / 32x32),
-  horse and bicycle saddles, wheelchair / car / office seating, and
-  glove sensors.
 * **Per-frame and per-trial analysis**: peak pressure, mean pressure,
   force, contact area, pressure-time integral, centre of pressure,
   symmetry index, gait cycle detection, and COP rollover pattern.
-* **Application-specific analysis**: saddle bridge and slip detection,
-  wheelchair hotspot identification, plantar-pressure regional analysis.
-* **Published reference thresholds** for saddle fit (von Peinen 2010,
-  Moenkemoeller 2005, Werner 2002), diabetic foot risk, and wheelchair
-  seating.
 * **Visualisation**: 2D and 3D heatmaps, dynamics plots, regional bar
   charts, composite report panels, and side-by-side trial comparison.
 * **Shiny app** (`pr_run_app()`) for interactive import, analysis, and
