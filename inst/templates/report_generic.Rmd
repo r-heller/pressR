@@ -1,0 +1,42 @@
+---
+title: "pressR trial report"
+output: html_document
+params:
+  trial: NULL
+  masks: NULL
+  thresholds: NULL
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE,
+                      fig.width = 7, fig.height = 5)
+library(pressR)
+```
+
+```{r}
+trial <- params$trial
+```
+
+## Trial
+
+```{r}
+print(trial)
+```
+
+## Summary
+
+```{r}
+pr_summary(trial)
+```
+
+## Maximum pressure picture
+
+```{r}
+pr_plot_heatmap(trial)
+```
+
+## Dynamics
+
+```{r}
+pr_plot_force_time(trial)
+```

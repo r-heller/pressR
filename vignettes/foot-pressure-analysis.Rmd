@@ -1,0 +1,69 @@
+---
+title: "Foot Pressure Analysis for Pedography and Gait Assessment"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Foot Pressure Analysis for Pedography and Gait Assessment}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE, comment = "#>",
+  fig.width = 7, fig.height = 4.5, dpi = 96
+)
+```
+
+```{r setup, message=FALSE}
+library(pressR)
+```
+
+Plantar-pressure measurement is used in pedography, gait analysis, and
+diabetic-foot risk assessment. This vignette demonstrates the workflow
+using a synthetic in-shoe insole trial.
+
+```{r}
+trial <- pr_example_trial("insole")
+trial
+```
+
+## Gait cycle detection
+
+```{r}
+cycles <- pr_calc_gait_cycles(trial)
+cycles
+```
+
+## Force vs time with cycles
+
+```{r, fig.alt="Force vs time with stance phases shaded"}
+pr_plot_force_time(trial, show_cycles = TRUE)
+```
+
+## Center of pressure and rollover
+
+```{r, fig.alt="COP trajectory over time"}
+pr_plot_cop(trial)
+```
+
+```{r, fig.alt="COP butterfly across cycles"}
+pr_plot_cop_butterfly(trial)
+```
+
+## Regional analysis
+
+```{r}
+pr_calc_regional(trial)
+```
+
+## Diabetic foot thresholds
+
+```{r}
+pr_ref_diabetic_foot()
+```
+
+## Composite foot report
+
+```{r, fig.alt="Foot-pressure composite report", fig.width=9, fig.height=7}
+pr_plot_foot_report(trial)
+```
