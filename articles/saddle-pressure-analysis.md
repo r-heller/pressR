@@ -1,6 +1,7 @@
 # Equine Saddle Pressure Analysis with pressR
 
 ``` r
+
 library(pressR)
 ```
 
@@ -12,6 +13,7 @@ through a typical analysis.
 ## Load the saddle layout
 
 ``` r
+
 layout <- pr_layout_saddle("horse")
 names(layout$regions)
 #> [1] "cranial_left"  "cranial_right" "middle_left"   "middle_right" 
@@ -21,6 +23,7 @@ names(layout$regions)
 ## Load a synthetic trial
 
 ``` r
+
 trial <- pr_example_trial("saddle_horse")
 trial
 #> 
@@ -32,13 +35,14 @@ trial
 #> • Sampling: 50 Hz
 #> • Sensors: 248
 #> • Subject: "HORSE01"
-#> • Date: "2026-04-17"
+#> • Date: "2026-05-04"
 #> • Condition: "walk"
 ```
 
 ## Inspect the pressure map
 
 ``` r
+
 pr_plot_heatmap_masked(trial)
 ```
 
@@ -48,6 +52,7 @@ mask](saddle-pressure-analysis_files/figure-html/unnamed-chunk-4-1.png)
 ## Regional analysis with reference thresholds
 
 ``` r
+
 masks <- pr_mask_saddle_6(layout)
 reg <- pr_calc_regional(trial, masks)
 reg
@@ -63,6 +68,7 @@ reg
 ```
 
 ``` r
+
 pr_plot_regional_bar(reg, "mvp", thresholds = pr_ref_saddle())
 ```
 
@@ -72,6 +78,7 @@ chart](saddle-pressure-analysis_files/figure-html/unnamed-chunk-6-1.png)
 ## Bridge detection
 
 ``` r
+
 bridge <- pr_calc_saddle_bridge(trial)
 bridge
 #> 
@@ -85,6 +92,7 @@ bridge
 ## Slip / asymmetric loading
 
 ``` r
+
 slip <- pr_calc_saddle_slip(trial)
 slip$symmetry_index_mean
 #> [1] 10.97069
@@ -95,6 +103,7 @@ slip$dominant_side
 ## Composite report
 
 ``` r
+
 pr_plot_saddle_report(trial)
 ```
 

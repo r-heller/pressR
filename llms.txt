@@ -9,6 +9,7 @@ interactive Shiny application for data exploration.
 ## Installation
 
 ``` r
+
 # install.packages("pak")
 pak::pak("r-heller/pressR")
 ```
@@ -16,6 +17,7 @@ pak::pak("r-heller/pressR")
 ## Quick example
 
 ``` r
+
 library(pressR)
 
 trial <- pr_example_trial("insole")

@@ -1,6 +1,7 @@
 # Foot Pressure Analysis for Pedography and Gait Assessment
 
 ``` r
+
 library(pressR)
 ```
 
@@ -9,6 +10,7 @@ diabetic-foot risk assessment. This vignette demonstrates the workflow
 using a synthetic in-shoe insole trial.
 
 ``` r
+
 trial <- pr_example_trial("insole")
 trial
 #> 
@@ -20,13 +22,14 @@ trial
 #> • Sampling: 50 Hz
 #> • Sensors: 99
 #> • Subject: "EX01"
-#> • Date: "2026-04-17"
+#> • Date: "2026-05-04"
 #> • Condition: "walking"
 ```
 
 ## Gait cycle detection
 
 ``` r
+
 cycles <- pr_calc_gait_cycles(trial)
 cycles
 #> # A tibble: 5 × 8
@@ -43,6 +46,7 @@ cycles
 ## Force vs time with cycles
 
 ``` r
+
 pr_plot_force_time(trial, show_cycles = TRUE)
 ```
 
@@ -52,6 +56,7 @@ shaded](foot-pressure-analysis_files/figure-html/unnamed-chunk-4-1.png)
 ## Center of pressure and rollover
 
 ``` r
+
 pr_plot_cop(trial)
 ```
 
@@ -59,6 +64,7 @@ pr_plot_cop(trial)
 time](foot-pressure-analysis_files/figure-html/unnamed-chunk-5-1.png)
 
 ``` r
+
 pr_plot_cop_butterfly(trial)
 ```
 
@@ -68,6 +74,7 @@ cycles](foot-pressure-analysis_files/figure-html/unnamed-chunk-6-1.png)
 ## Regional analysis
 
 ``` r
+
 pr_calc_regional(trial)
 #> # A tibble: 7 × 6
 #>   region           mpp   mvp max_force contact_area pti_mean
@@ -84,6 +91,7 @@ pr_calc_regional(trial)
 ## Diabetic foot thresholds
 
 ``` r
+
 pr_ref_diabetic_foot()
 #> # A tibble: 4 × 6
 #>   region      parameter threshold unit  interpretation                    source
@@ -97,6 +105,7 @@ pr_ref_diabetic_foot()
 ## Composite foot report
 
 ``` r
+
 pr_plot_foot_report(trial)
 ```
 

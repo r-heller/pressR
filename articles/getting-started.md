@@ -1,6 +1,7 @@
 # Getting Started with pressR
 
 ``` r
+
 library(pressR)
 ```
 
@@ -23,6 +24,7 @@ Every trial is tied to a `pr_layout` object that describes the sensor
 geometry. For example, a 99-sensor in-shoe pressure insole:
 
 ``` r
+
 layout <- pr_layout_insole()
 print(layout)
 #> 
@@ -46,6 +48,7 @@ produces realistic synthetic data for each supported application. This
 is useful for quick demos, tests, and vignettes.
 
 ``` r
+
 trial <- pr_example_trial("insole")
 trial
 #> 
@@ -57,7 +60,7 @@ trial
 #> • Sampling: 50 Hz
 #> • Sensors: 99
 #> • Subject: "EX01"
-#> • Date: "2026-04-17"
+#> • Date: "2026-05-04"
 #> • Condition: "walking"
 ```
 
@@ -66,6 +69,7 @@ trial
 The default plot method draws a maximum-pressure picture (MPP):
 
 ``` r
+
 pr_plot_heatmap(trial)
 ```
 
@@ -75,6 +79,7 @@ trial](getting-started_files/figure-html/unnamed-chunk-4-1.png)
 Time-domain curves are equally straightforward:
 
 ``` r
+
 pr_plot_force_time(trial, show_cycles = TRUE)
 ```
 
@@ -88,6 +93,7 @@ returns a single-row tibble containing the common biomechanical
 parameters:
 
 ``` r
+
 pr_summary(trial)
 #> # A tibble: 1 × 14
 #>     mpp   mvp max_force mean_force max_contact_area mean_contact_area
@@ -104,6 +110,7 @@ With the insole layout’s default region masks you get one row per
 anatomical region:
 
 ``` r
+
 pr_calc_regional(trial)
 #> # A tibble: 7 × 6
 #>   region           mpp   mvp max_force contact_area pti_mean
@@ -122,6 +129,7 @@ pr_calc_regional(trial)
 Results can be exported as CSV:
 
 ``` r
+
 tmp <- tempfile(fileext = ".csv")
 pr_export_csv(trial, tmp, what = "summary")
 ```
@@ -129,5 +137,6 @@ pr_export_csv(trial, tmp, what = "summary")
 ## Launch the Shiny app
 
 ``` r
+
 pr_run_app(trial)
 ```
